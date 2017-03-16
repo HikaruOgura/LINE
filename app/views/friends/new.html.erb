@@ -1,0 +1,13 @@
+<h1>友達を追加する</h1>
+
+<p>
+    <%= form_for [@user,@user.friends.build] do |f|%>
+    <p>
+        <%= f.label "友達のid" %>: <%= f.text_field :friend_id %>
+    </p>
+    <p>
+        <%= f.submit "友達に追加"%>
+    </p>
+    <%end%>
+
+</p>
