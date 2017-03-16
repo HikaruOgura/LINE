@@ -1,0 +1,13 @@
+<h1>新しくトークを始める</h1>
+
+<p>
+    <%= form_for [@user,@user.chats.build] do |f|%>
+    <p>
+        <%= f.text_field :send_to_ID %>
+    </p>
+    <p>
+        <%= f.submit "トークを始める"%>
+    </p>
+    <%end%>
+
+</p>

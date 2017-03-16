@@ -1,0 +1,18 @@
+<h1>ようこそ<%=@user.name%>さん</h1>
+<p>
+    <%= link_to "プロフィールを編集する",edit_user_path(@user.id) %>
+    <%= link_to "アカウントを削除する",user_path(@user.id),method: :delete,data: {confirm: @user.name+"を本当に削除して良いですか？？"}%>
+    <%= link_to "新しいトークを始める",new_user_chat_path(@user.id) %>
+</p>
+----------トーク一覧-----------------------------------------------------------------------------  <br>
+<br>
+
+<ul>
+    <%@user.chats.each do |chat|%>
+        <li>
+        <%= chat.send_to_ID %>
+        <%= link_to "削除する",user_chat_path(chat.user_id,chat.id),method: :delete,data: {confirm: "このコメントを本当に削除して良いですか？？"} %>
+        </li>
+    <%end%>
+    <br>
+</ul>

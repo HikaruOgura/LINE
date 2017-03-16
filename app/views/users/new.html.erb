@@ -1,0 +1,16 @@
+<h1>ユーザー登録画面</h1>
+
+
+<%= form_for @user do |f|%>
+<p>
+    <%= f.label :新規ユーザー名%>:<%= f.text_field :name%><br>
+    <%if @user.errors.any? %>
+    <%=  @user.errors.messages[:name][0]%>
+    <%end%>
+    <%= f.label :line_ID%>:        <%= f.text_field :lineID%>
+</p>
+
+<p>
+    <%= f.submit%>
+</p>
+<%end%>

@@ -1,0 +1,15 @@
+<h1>ユーザー一覧画面</h1>
+<p>
+    <ul>
+        <% @users.each do |user| %>
+            <li>
+                <%= link_to user.name,user_path(user.id) %>(lineID:<%=user.lineID%>)
+                
+            </li>
+        <% end %>
+    </ul>
+
+</p>
+<p>
+    <%= link_to 'ユーザー登録画面へ',new_user_path %>
+</p>
