@@ -24,9 +24,12 @@ ActiveRecord::Schema.define(version: 20170316063615) do
 
   create_table "friends", force: :cascade do |t|
     t.integer  "friend_id",  limit: 4
+    t.integer  "user_id",    limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
+
+  add_index "friends", ["user_id"], name: "index_friends_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -36,4 +39,5 @@ ActiveRecord::Schema.define(version: 20170316063615) do
   end
 
   add_foreign_key "chats", "users"
+  add_foreign_key "friends", "users"
 end
