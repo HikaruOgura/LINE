@@ -2,7 +2,6 @@
 <p>
     <%= link_to "プロフィールを編集する",edit_user_path(@user.id) %>
     <%= link_to "アカウントを削除する",user_path(@user.id),method: :delete,data: {confirm: @user.name+"を本当に削除して良いですか？？"}%>
-    <%= link_to "新しいトークを始める",new_user_chat_path(@user.id) %>
     <%= link_to "友達を追加する",new_user_friend_path(@user.id) %>
 </p>
 ----------トーク一覧-----------------------------------------------------------------------------  <br>
@@ -21,8 +20,7 @@
 <ul>
     <%@user.friends.each do |friend|%>
         <li>
-        <%= User.find(friend.friend_id).name %>
-        <%= link_to "削除する",user_friend_path(friend.user_id,friend.id),method: :delete,data: {confirm: "この人を本当に友達から削除して良いですか？？"} %>
+        <%= link_to User.find(friend.friend_id).name,user_friend_path(friend.user_id,friend.id) %>
         </li>
     <%end%>
     <br>
