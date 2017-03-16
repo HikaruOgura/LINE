@@ -3,7 +3,7 @@
 <p>
     <%= form_for [@user,@user.chats.build] do |f|%>
     <p>
-        <%= f.text_field :send_to_ID %>
+        <%= f.label "送る相手のID" %>: <%= f.text_field :send_to_ID %>
     </p>
     <p>
         <%= f.submit "トークを始める"%>
