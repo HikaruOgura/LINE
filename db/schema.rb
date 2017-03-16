@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(version: 20170316021713) do
 
   create_table "chats", force: :cascade do |t|
-    t.string   "send_to_ID", limit: 255
+    t.integer  "send_to_ID", limit: 4
     t.integer  "user_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "chats", ["user_id"], name: "index_chats_on_user_id", using: :btree
