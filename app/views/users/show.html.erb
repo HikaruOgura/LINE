@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>LINE</title>
         <style media="screen">
-            
+
         </style>
 
     </head>
@@ -34,7 +34,15 @@
                 <%@user.chats.each do |chat|%>
         		<tr>
                     <th><%= link_to User.find(chat.send_to_ID).name,user_chat_path(chat.user_id,chat.id) %></th>
-                    <td>ここに最新メッセージ</td>
+                    <% user2=User.find(chat.send_to_ID) %>
+                    <% chat2=user2.chats.find_by(send_to_ID: @user.id) %>
+                    <% message=chat.messages.last %>
+                    <% message2=chat2.messages.last %>
+                    <% if message.created_at > message2.created_at %>
+                        <td><%= message.text %></td>
+                    <% else %>
+                        <td><%= message2.text %></td>
+                    <% end %>
                     <td class="delete"><%= link_to "削除する",user_chat_path(chat.user_id,chat.id),method: :delete,data: {confirm: "このトークを本当に削除して良いですか？？"} %></td>
         		</tr>
                 <%end%>
