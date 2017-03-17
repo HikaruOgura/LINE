@@ -4,10 +4,16 @@
         <meta charset="utf-8">
         <title>LINE</title>
         <style media="screen">
+            h1{
+                text-align: center;
+            }
+            div{
+                text-align: center;
+            }
             table#chats{
                 position: absolute;
                 top: 200px;
-                left: 10px;
+                left: 100px;
                 border-collapse: collapse;
                 text-align: left;
                 line-height: 1.5;
@@ -36,7 +42,7 @@
             table#friends{
                 position: absolute;
                 top: 200px;
-                left: 950px;
+                left: 1050px;
                 border-collapse: collapse;
                 text-align: left;
                 line-height: 1.5;
@@ -61,22 +67,34 @@
             table tr{
                 border-right: 1px solid #ccc;
             }
-
-
+            table#mainmenu{
+                position: absolute;
+                top:130px;
+                left:200px;
+                border-collapse: collapse;
+                text-align: center;
+                line-height: 1.5;
+                border-top: 1px solid #ccc;
+                border-left: 1px solid #ccc;
+                background-color: #eee
+            }
+            table#mainmenu th{
+                width: 250px;
+            }
         </style>
 
     </head>
     <body>
         <h1><%=@user.name%></h1>
         <div class="lineid">
-            lineID:<%= @user.lineID %>
+            ID:<%= @user.lineID %>
         </div>
         <p>
-        <table>
+        <table id="mainmenu">
         	<thead>
         		<tr>
-        			<th><%= link_to "プロフィールを編集する",edit_user_path(@user.id) %></th> <th><%= link_to "アカウントを削除する",user_path(@user.id),method: :delete,data: {confirm: @user.name+"を本当に削除して良いですか？？"}%>
-                    </th> <th><%= link_to "友達を追加する",new_user_friend_path(@user.id) %></th> <th><%= link_to "ログアウト",users_path %></th>
+        			<th><%= link_to "プロフィールを編集する",edit_user_path(@user.id) %></th> <th><%= link_to "友達を追加する",new_user_friend_path(@user.id) %>
+                    </th> <th><%= link_to "アカウントを削除する",user_path(@user.id),method: :delete,data: {confirm: @user.name+"を本当に削除して良いですか？？"}%></th> <th><%= link_to "ログアウト",users_path %></th>
         		</tr>
         	</thead>
         </table>
