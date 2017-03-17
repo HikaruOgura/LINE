@@ -9,7 +9,7 @@
 <ul>
     <%@user.chats.each do |chat|%>
         <li>
-        <%= User.find(chat.send_to_ID).name %>
+        <%= link_to User.find(chat.send_to_ID).name,user_chat_path(chat.user_id,chat.id) %>
         <%= link_to "削除する",user_chat_path(chat.user_id,chat.id),method: :delete,data: {confirm: "このトークを本当に削除して良いですか？？"} %>
         </li>
     <%end%>

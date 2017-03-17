@@ -13,5 +13,9 @@ class ChatsController < ApplicationController
     def new
         @user=User.find(params[:user_id])
     end
+    def show
+        @user=User.find(params[:user_id])
+        @chat=@user.chats.find(params[:id])
+    end
 
 end
