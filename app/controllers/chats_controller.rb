@@ -11,8 +11,18 @@ class ChatsController < ApplicationController
         end
     end
     def destroy
-        @chat=Chat.find(params[:id])
+        @user=User.find(params[:user_id])
+        @chat=@user.chats.find(params[:id])
+        @user2=User.find(@chat.send_to_ID)
+        @chat2=@user2.chats.find_by(send_to_ID: @user.id)
+        @chat.messages.each do |message|
+            message.destroy
+        end
+        @chat2.messages.each do |message|
+            message.destroy
+        end
         @chat.destroy
+        @chat2.destroy
         redirect_to user_path(params[:user_id])
     end
 
