@@ -1,1 +1,20 @@
 <h1><%= User.find(@chat.send_to_ID).name %>とのトーク画面</h1>
+
+---------トーク画面-----------------------------------------------------
+<br>
+
+<ul>
+<% @chat.messages.each do |message| %>
+    <li>
+    <%= message.text %>
+    </li>
+<% end %>
+</ul>
+------------------------------------------------------------------------
+
+<p>
+    <% @message=@chat.messages.new  %>
+    <%= form_for @message, url: user_chat_messages_path(@user.id,@chat.id), method: :post do |f|%>
+        <%= f.text_area :text%>   <%= f.submit "送信" %>
+    <%end%>
+</p>

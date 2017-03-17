@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
     resources :users do
-        resources :chats
+        resources :chats do
+            resources :messages
+        end
         resources :friends
     end
     root "users#index"

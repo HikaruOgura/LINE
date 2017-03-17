@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316063615) do
+ActiveRecord::Schema.define(version: 20170317011757) do
 
   create_table "chats", force: :cascade do |t|
     t.integer  "send_to_ID", limit: 4
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20170316063615) do
 
   add_index "friends", ["user_id"], name: "index_friends_on_user_id", using: :btree
 
+  create_table "messages", force: :cascade do |t|
+    t.string   "text",       limit: 255
+    t.integer  "chat_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "messages", ["chat_id"], name: "index_messages_on_chat_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "lineID",     limit: 255
@@ -40,4 +49,5 @@ ActiveRecord::Schema.define(version: 20170316063615) do
 
   add_foreign_key "chats", "users"
   add_foreign_key "friends", "users"
+  add_foreign_key "messages", "chats"
 end

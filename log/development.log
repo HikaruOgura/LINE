@@ -10134,3 +10134,2153 @@ Processing by ChatsController#show as HTML
   [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
   Rendered chats/show.html.erb within layouts/application (1.2ms)
 Completed 200 OK in 35ms (Views: 28.9ms | ActiveRecord: 1.3ms)
+  [1m[36m (31.5ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (30.3ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20170316010219)
+  [1m[35m (21.5ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `lineID` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20170316010219')
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateChats (20170316021713)
+  [1m[35m (22.0ms)[0m  CREATE TABLE `chats` (`id` int(11) auto_increment PRIMARY KEY, `send_to_ID` int(11), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_chats_on_user_id`  (`user_id`) ) ENGINE=InnoDB
+  [1m[36m (34.5ms)[0m  [1mALTER TABLE `chats` ADD CONSTRAINT `fk_rails_e555f43151`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20170316021713')[0m
+  [1m[35m (3.1ms)[0m  COMMIT
+Migrating to CreateFriends (20170316063615)
+  [1m[36m (22.4ms)[0m  [1mCREATE TABLE `friends` (`id` int(11) auto_increment PRIMARY KEY, `friend_id` int(11), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_friends_on_user_id`  (`user_id`) ) ENGINE=InnoDB[0m
+  [1m[35m (32.6ms)[0m  ALTER TABLE `friends` ADD CONSTRAINT `fk_rails_9cfeeb4593`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20170316063615')
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMessages (20170317011757)
+  [1m[36m (31.2ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (35.1ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20170316010219)
+  [1m[35m (26.5ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `lineID` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20170316010219')
+  [1m[36m (5.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateChats (20170316021713)
+  [1m[35m (29.0ms)[0m  CREATE TABLE `chats` (`id` int(11) auto_increment PRIMARY KEY, `send_to_ID` int(11), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_chats_on_user_id`  (`user_id`) ) ENGINE=InnoDB
+  [1m[36m (53.2ms)[0m  [1mALTER TABLE `chats` ADD CONSTRAINT `fk_rails_e555f43151`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20170316021713')[0m
+  [1m[35m (2.3ms)[0m  COMMIT
+Migrating to CreateFriends (20170316063615)
+  [1m[36m (23.9ms)[0m  [1mCREATE TABLE `friends` (`id` int(11) auto_increment PRIMARY KEY, `friend_id` int(11), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_friends_on_user_id`  (`user_id`) ) ENGINE=InnoDB[0m
+  [1m[35m (33.4ms)[0m  ALTER TABLE `friends` ADD CONSTRAINT `fk_rails_9cfeeb4593`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20170316063615')
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMessages (20170317011757)
+  [1m[35m (26.0ms)[0m  CREATE TABLE `messages` (`id` int(11) auto_increment PRIMARY KEY, `text` varchar(255), `chat_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_messages_on_chat_id`  (`chat_id`) ) ENGINE=InnoDB
+  [1m[36m (41.9ms)[0m  [1mALTER TABLE `messages` ADD CONSTRAINT `fk_rails_0f670de7ba`
+FOREIGN KEY (`chat_id`)
+  REFERENCES `chats` (`id`)
+[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20170317011757')[0m
+  [1m[35m (2.2ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.8ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'sample_development'
+  AND fk.table_name = 'chats'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `chats`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'sample_development'
+  AND fk.table_name = 'friends'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `friends`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'sample_development'
+  AND fk.table_name = 'messages'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `messages`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'sample_development'
+  AND fk.table_name = 'users'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `users`[0m
+
+
+Started GET "/users" for ::1 at 2017-03-17 10:22:31 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 498ms (Views: 471.8ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/assets/messages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2017-03-17 10:22:32 +0900
+
+
+Started GET "/" for ::1 at 2017-03-17 10:22:32 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2017-03-17 10:22:32 +0900
+
+
+Started GET "/users/new" for ::1 at 2017-03-17 10:22:33 +0900
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (38.4ms)
+Completed 200 OK in 89ms (Views: 78.1ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/users" for ::1 at 2017-03-17 10:22:42 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rtVvmiNSlKZVQy/gyBAi05iIbcV3Exfy+l41xYKRhxKqPXQ+pj6mo6neBZfQq07LtTRaEvpRl6M+58bwVgFYNw==", "user"=>{"name"=>"おんどう", "lineID"=>"hikaru"}, "commit"=>"Create User"}
+Unpermitted parameter: lineID
+Unpermitted parameter: name
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `lineID`, `created_at`, `updated_at`) VALUES ('おんどう', 'hikaru', '2017-03-17 01:22:42', '2017-03-17 01:22:42')[0m
+  [1m[35m (2.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/users
+Completed 302 Found in 7ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 10:22:42 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for ::1 at 2017-03-17 10:22:44 +0900
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 49ms (Views: 45.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-03-17 10:22:53 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y5n457HVQwgkoDcahD0FAJ1SNZNDjfUaB0U08p6cKytnceNDNLlxDdg9HW2chmkYsO4CRM7PdUvD/MfHSgz0Dg==", "user"=>{"name"=>"へい", "lineID"=>"hey"}, "commit"=>"Create User"}
+Unpermitted parameter: lineID
+Unpermitted parameter: name
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `lineID`, `created_at`, `updated_at`) VALUES ('へい', 'hey', '2017-03-17 01:22:53', '2017-03-17 01:22:53')[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/users
+Completed 302 Found in 5ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 10:22:53 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for ::1 at 2017-03-17 10:22:54 +0900
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 51ms (Views: 49.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-03-17 10:23:00 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cGjt/jA9160WGtUiUV8hbnrawtblmisv21gLaGWGYYd0gPZatVHlqOqH/1VJ5E12V2b1AWjYq34f4fhdsRa+og==", "user"=>{"name"=>"ぬっくん", "lineID"=>""}, "commit"=>"Create User"}
+Unpermitted parameter: lineID
+Unpermitted parameter: name
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `lineID`, `created_at`, `updated_at`) VALUES ('ぬっくん', '', '2017-03-17 01:23:00', '2017-03-17 01:23:00')[0m
+  [1m[35m (2.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/users
+Completed 302 Found in 7ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 10:23:00 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 22ms (Views: 21.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for ::1 at 2017-03-17 10:23:03 +0900
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-03-17 10:23:06 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SYd7igMMbICX63swQAwJ0lpW9x03GbDQAys3j5kfDA5Nb2AuhmBehWt2UUdYt2XKd+rAyrpbMIHHksS6TY/TKw==", "user"=>{"name"=>"みず", "lineID"=>""}, "commit"=>"Create User"}
+Unpermitted parameter: lineID
+Unpermitted parameter: name
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `lineID`, `created_at`, `updated_at`) VALUES ('みず', '', '2017-03-17 01:23:06', '2017-03-17 01:23:06')[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/users
+Completed 302 Found in 5ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 10:23:06 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for ::1 at 2017-03-17 10:23:07 +0900
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 32ms (Views: 31.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-03-17 10:23:10 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oSPZaJ5RuU79r176jGBc1r5/jx01D06Rgd8xSR3IwGuly8LMGz2LSwEydI2U2zDOk8O4yrhNzsBFZsJ8yVgfTg==", "user"=>{"name"=>"はげ", "lineID"=>""}, "commit"=>"Create User"}
+Unpermitted parameter: lineID
+Unpermitted parameter: name
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `lineID`, `created_at`, `updated_at`) VALUES ('はげ', '', '2017-03-17 01:23:10', '2017-03-17 01:23:10')[0m
+  [1m[35m (2.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/users
+Completed 302 Found in 5ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 10:23:10 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for ::1 at 2017-03-17 10:23:12 +0900
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 33ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-03-17 10:23:23 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EXooBF1b5p3n6kDdMs24AHIEC6bsn2941FmSEAXlFu0VkjOg2DfUmBt3aqoqdtQYX7g8cWHd7ykQ4GEl0XXJyA==", "user"=>{"name"=>"腹へりまん", "lineID"=>""}, "commit"=>"Create User"}
+Unpermitted parameter: lineID
+Unpermitted parameter: name
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `lineID`, `created_at`, `updated_at`) VALUES ('腹へりまん', '', '2017-03-17 01:23:23', '2017-03-17 01:23:23')[0m
+  [1m[35m (1.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/users
+Completed 302 Found in 6ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 10:23:23 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for ::1 at 2017-03-17 10:23:26 +0900
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 41ms (Views: 40.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-03-17 10:23:30 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SmbcY5tZDdUWQmnfQf6+Xs6uES6i08GPE8WmckafyktOjsfHHjU/0OrfQ6hZRdJG4xIm+S+RQd7XfFVHkg8Vbg==", "user"=>{"name"=>"いけめん", "lineID"=>""}, "commit"=>"Create User"}
+Unpermitted parameter: lineID
+Unpermitted parameter: name
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `lineID`, `created_at`, `updated_at`) VALUES ('いけめん', '', '2017-03-17 01:23:30', '2017-03-17 01:23:30')[0m
+  [1m[35m (2.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/users
+Completed 302 Found in 6ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 10:23:30 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 22ms (Views: 21.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:23:31 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1[0m
+  [1m[35mFriend Load (0.3ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1
+  Rendered users/show.html.erb within layouts/application (46.6ms)
+Completed 200 OK in 94ms (Views: 69.5ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/users/1/friends/new" for ::1 at 2017-03-17 10:23:34 +0900
+Processing by FriendsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered friends/new.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 47ms (Views: 43.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/1/friends" for ::1 at 2017-03-17 10:23:39 +0900
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4aIXmvFGloPXUBEfAz0HiPKECKwQY5becW8oknmU6EHlSgw+dCqkhivNO2gbhmuQ3zg/e50hFo+11tunrQQ3ZA==", "friend"=>{"friend_id"=>"2"}, "commit"=>"友達に追加", "user_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `friends` (`friend_id`, `user_id`, `created_at`, `updated_at`) VALUES (2, 1, '2017-03-17 01:23:39', '2017-03-17 01:23:39')
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 7ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:23:39 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1[0m
+  [1m[35mFriend Load (0.3ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 29ms (Views: 27.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1/friends/new" for ::1 at 2017-03-17 10:23:41 +0900
+Processing by FriendsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered friends/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/1/friends" for ::1 at 2017-03-17 10:23:44 +0900
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q+NnUuMT59bZ7pECBHQ1qb9Miam7GOFO6a7GnzINwdhHC3z2Zn/V0yVzu3Ucz1mxkvC+fjZaYR8tFzWq5p0e/Q==", "friend"=>{"friend_id"=>"3"}, "commit"=>"友達に追加", "user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `friends` (`friend_id`, `user_id`, `created_at`, `updated_at`) VALUES (3, 1, '2017-03-17 01:23:44', '2017-03-17 01:23:44')[0m
+  [1m[35m (1.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 6ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:23:44 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1
+  [1m[36mFriend Load (0.3ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1[0m
+  [1m[35mUser Load (3.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 30ms (Views: 24.9ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/users/1/friends/new" for ::1 at 2017-03-17 10:23:56 +0900
+Processing by FriendsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered friends/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/1/friends" for ::1 at 2017-03-17 10:24:00 +0900
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"razbJwIAYHR2eZi9pwny7Vm8uXzWNbMDfmwkUkttNUmpRMCDh2xScYrkssq/sp71dACOq1t3M1K61ddnn/3qbA==", "friend"=>{"friend_id"=>"4"}, "commit"=>"友達に追加", "user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `friends` (`friend_id`, `user_id`, `created_at`, `updated_at`) VALUES (4, 1, '2017-03-17 01:24:00', '2017-03-17 01:24:00')[0m
+  [1m[35m (2.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 7ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:24:00 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1
+  [1m[36mFriend Load (0.3ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  Rendered users/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 25ms (Views: 22.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/1/friends/new" for ::1 at 2017-03-17 10:24:02 +0900
+Processing by FriendsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered friends/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/1/friends" for ::1 at 2017-03-17 10:24:05 +0900
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0QTQeEklwevker4XeO2RmvBCo0lIlw008NSpLEHeRM3V7MvczEnz7hjnlGBgVv2C3f6UnsXVjWU0bVoZlU6b6A==", "friend"=>{"friend_id"=>"5"}, "commit"=>"友達に追加", "user_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `friends` (`friend_id`, `user_id`, `created_at`, `updated_at`) VALUES (5, 1, '2017-03-17 01:24:05', '2017-03-17 01:24:05')
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 7ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:24:05 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1[0m
+  [1m[35mFriend Load (0.3ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  Rendered users/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 24ms (Views: 20.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/1/friends/1" for ::1 at 2017-03-17 10:24:07 +0900
+Processing by FriendsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mFriend Load (0.3ms)[0m  [1mSELECT  `friends`.* FROM `friends` WHERE `friends`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  Rendered friends/show.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 62ms (Views: 58.9ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/1/chats" for ::1 at 2017-03-17 10:24:09 +0900
+Processing by ChatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eomrs2doZ/jL3b3CqCT3NkbFBhg/T6IZZXQgez/EYiR+YbAX4gRV/TdAl7Wwn5sua3kxz7INIkihzdNO61S9AQ==", "chat"=>{"send_to_ID"=>"2"}, "commit"=>"トークを始める", "user_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `chats` (`send_to_ID`, `user_id`, `created_at`, `updated_at`) VALUES (2, 1, '2017-03-17 01:24:09', '2017-03-17 01:24:09')
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 7ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:24:09 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mFriend Load (0.3ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 34ms (Views: 30.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/1/friends/2" for ::1 at 2017-03-17 10:24:12 +0900
+Processing by FriendsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+  [1m[35mFriend Load (0.5ms)[0m  SELECT  `friends`.* FROM `friends` WHERE `friends`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  Rendered friends/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 40ms (Views: 35.7ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users/1/chats" for ::1 at 2017-03-17 10:24:13 +0900
+Processing by ChatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/QUA4YU6q6bzmWLXbOYzoGH8nqsW9b82PGZA+kUa8Gb57RtFAFaZow8ESKB0XV+4TECpfJu3P2f437PPkYovQw==", "chat"=>{"send_to_ID"=>"3"}, "commit"=>"トークを始める", "user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `chats` (`send_to_ID`, `user_id`, `created_at`, `updated_at`) VALUES (3, 1, '2017-03-17 01:24:13', '2017-03-17 01:24:13')[0m
+  [1m[35m (1.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 7ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:24:13 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mFriend Load (0.3ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 28ms (Views: 24.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 10:24:14 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  Rendered chats/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 43ms (Views: 39.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/1/chats/2" for ::1 at 2017-03-17 10:24:18 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.5ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered chats/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 41ms (Views: 29.7ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:28:34 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mFriend Load (0.3ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  Rendered users/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 30ms (Views: 27.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 10:28:37 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered chats/show.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 2.2ms)
+
+ActionView::Template::Error (undefined method `messages' for #<Chat:0x007fc39fb78c38>):
+    1: <h1><%= User.find(@chat.send_to_ID).name %>とのトーク画面</h1>
+    2: <p>
+    3: 
+    4: <% @chat.messages.each do |message| %>
+    5:     <%= message.text %>
+    6: <% end %>
+    7: 
+  app/views/chats/show.html.erb:4:in `_app_views_chats_show_html_erb__3809784280403257651_70239061623820'
+
+
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.6ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (98.6ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (63.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (144.1ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 10:30:13 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.6ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1[0m
+  Rendered chats/show.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 65ms (Views: 30.9ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 10:30:16 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1[0m
+  Rendered chats/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 25ms (Views: 21.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:36:52 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mFriend Load (0.5ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  Rendered users/show.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 55ms (Views: 44.0ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/users/1/chats/2" for ::1 at 2017-03-17 10:36:55 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.7ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 2
+  Rendered chats/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 44ms (Views: 36.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users/1/friends/2" for ::1 at 2017-03-17 10:36:59 +0900
+Processing by FriendsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+  [1m[36mFriend Load (0.6ms)[0m  [1mSELECT  `friends`.* FROM `friends` WHERE `friends`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  Rendered friends/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 47ms (Views: 41.2ms | ActiveRecord: 2.1ms)
+
+
+Started DELETE "/users/1/friends/2" for ::1 at 2017-03-17 10:37:04 +0900
+Processing by FriendsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bWsjx5UjPNN+U7h5dQho7/XoQieG/D7NbQtZMHIE0BlpgzhjEE8O1oLOkg5tswT32FR18Au+vpypsqoFppQPPA==", "user_id"=>"1", "id"=>"2"}
+  [1m[35mFriend Load (0.5ms)[0m  SELECT  `friends`.* FROM `friends` WHERE `friends`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM `friends` WHERE `friends`.`id` = 2
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 8ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:37:04 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mFriend Load (0.3ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 36ms (Views: 32.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/1/friends/3" for ::1 at 2017-03-17 10:37:08 +0900
+Processing by FriendsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"3"}
+  [1m[35mFriend Load (0.3ms)[0m  SELECT  `friends`.* FROM `friends` WHERE `friends`.`id` = 3 LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  Rendered friends/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 39ms (Views: 35.3ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/users/1/friends/3" for ::1 at 2017-03-17 10:37:14 +0900
+Processing by FriendsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"tkKp8n02IiOmY2RpDZd4G3P2mXvWRkwAdaeu3s9RHjeyqrJW+FoQJlr+Th4VLBQDXkqurFsEzFGxHl3rG8HBEg==", "user_id"=>"1", "id"=>"3"}
+  [1m[36mFriend Load (0.4ms)[0m  [1mSELECT  `friends`.* FROM `friends` WHERE `friends`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `friends` WHERE `friends`.`id` = 3[0m
+  [1m[35m (3.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 7ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:37:14 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mFriend Load (0.3ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 35ms (Views: 32.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/1/friends/4" for ::1 at 2017-03-17 10:37:18 +0900
+Processing by FriendsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"4"}
+  [1m[35mFriend Load (0.3ms)[0m  SELECT  `friends`.* FROM `friends` WHERE `friends`.`id` = 4 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered friends/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 36ms (Views: 33.0ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/1/chats" for ::1 at 2017-03-17 10:37:20 +0900
+Processing by ChatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wB3YOIlhi6+QO8iAIFk1+XihPticmM6i3Q/wdq3R6zbE9cOcDA25qmym4vc44lnhVR0JDxHaTvMZtgNDeUE0Ew==", "chat"=>{"send_to_ID"=>"5"}, "commit"=>"トークを始める", "user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `chats` (`send_to_ID`, `user_id`, `created_at`, `updated_at`) VALUES (5, 1, '2017-03-17 01:37:20', '2017-03-17 01:37:20')[0m
+  [1m[35m (2.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 8ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:37:20 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.4ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mFriend Load (0.3ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered users/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 32ms (Views: 29.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/1/chats/3" for ::1 at 2017-03-17 10:37:22 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (1.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 3 LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 3
+  Rendered chats/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 52ms (Views: 43.6ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 10:37:56 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 26ms (Views: 25.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for ::1 at 2017-03-17 10:37:59 +0900
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2017-03-17 10:38:15 +0900
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 35ms (Views: 34.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-03-17 10:38:27 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Re1qldSczsnRJutssxeSLHhf3z3ND1Ed+XJQUyTyDX5BBXExUfD8zC27wRurrP40VePo6kBN0Uw9y6Nm8GLSWw==", "user"=>{"name"=>"tinnnko", "lineID"=>"tinkoooo"}, "commit"=>"Create User"}
+Unpermitted parameter: lineID
+Unpermitted parameter: name
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `lineID`, `created_at`, `updated_at`) VALUES ('tinnnko', 'tinkoooo', '2017-03-17 01:38:27', '2017-03-17 01:38:27')[0m
+  [1m[35m (2.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/users
+Completed 302 Found in 5ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 10:38:27 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 26ms (Views: 25.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/8" for ::1 at 2017-03-17 10:38:29 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 8[0m
+  [1m[35mFriend Load (0.5ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 8
+  Rendered users/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 41ms (Views: 37.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/7" for ::1 at 2017-03-17 10:38:34 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mChat Load (0.6ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 7
+  [1m[36mFriend Load (0.2ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 7[0m
+  Rendered users/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 36ms (Views: 33.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:38:39 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mFriend Load (0.6ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered users/show.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 42ms (Views: 37.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users/2" for ::1 at 2017-03-17 10:38:41 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2[0m
+  [1m[35mFriend Load (0.7ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 2
+  Rendered users/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 31ms (Views: 27.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/2/edit" for ::1 at 2017-03-17 10:38:43 +0900
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 45ms (Views: 43.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2/friends/new" for ::1 at 2017-03-17 10:38:51 +0900
+Processing by FriendsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  Rendered friends/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:38:58 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (1.4ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mFriend Load (0.8ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered users/show.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 44ms (Views: 35.6ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 10:42:24 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mFriend Load (0.4ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered users/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 31ms (Views: 28.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 10:42:26 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (2.5ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (25.3ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 4.4ms)
+
+ActionView::Template::Error (undefined method `chat_messages_path' for #<#<Class:0x007fc39d9ecd58>:0x007fc39bdceef0>):
+     8: </p>
+     9: 
+    10: <p>
+    11:     <%= form_for [@chat,@chat.messages.build] do |f|%>
+    12:     <p>
+    13:         <%= f.text_area :text %><%= f.submit "送信"%>
+    14:     </p>
+  app/views/chats/show.html.erb:11:in `_app_views_chats_show_html_erb__3809784280403257651_70239054861680'
+
+
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (75.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (106.1ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (177.9ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 10:43:01 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.3ms)
+
+ActionView::Template::Error (undefined method `message' for #<Chat:0x007fc39fed2c58>):
+     8: </p>
+     9: 
+    10: <p>
+    11:     <%= form_for [@chat,@chat.message.build] do |f|%>
+    12:     <p>
+    13:         <%= f.text_area :text %><%= f.submit "送信"%>
+    14:     </p>
+  app/views/chats/show.html.erb:11:in `_app_views_chats_show_html_erb__3809784280403257651_70239089231900'
+
+
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (88.8ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (59.8ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (131.9ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 10:46:24 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (15.2ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.2ms)
+
+ActionView::Template::Error (undefined method `chat_messages_path' for #<#<Class:0x007fc39d9ecd58>:0x007fc3a0ef34e8>):
+     8: </p>
+     9: 
+    10: <p>
+    11:     <%= form_for [@chat,@chat.messages.build] do |f|%>
+    12:         <%= f.text_area :text %><%= f.submit "送信" %>
+    13:     <%end%>
+    14: </p>
+  app/views/chats/show.html.erb:11:in `_app_views_chats_show_html_erb__3809784280403257651_70239097688260'
+
+
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (90.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.6ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (95.8ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (195.1ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 10:49:42 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (23.0ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.6ms)
+
+ActionView::Template::Error (undefined method `chat_messages_path' for #<#<Class:0x007fc39d9ecd58>:0x007fc39db45e48>):
+     8: </p>
+     9: 
+    10: <p>
+    11:     <%= form_for [@chat,@chat.messages.build] do |f|%>
+    12:         <%= f.text_area :text ,cols: 40,rows:3%><%= f.submit "送信" %>
+    13:     <%end%>
+    14: </p>
+  app/views/chats/show.html.erb:11:in `_app_views_chats_show_html_erb__3809784280403257651_70239070594540'
+
+
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (75.9ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (65.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (143.9ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 10:50:33 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.2ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (15.1ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.1ms)
+
+ActionView::Template::Error (undefined method `chat_messages_path' for #<#<Class:0x007fc39d9ecd58>:0x007fc39d96baf0>):
+     8: </p>
+     9: 
+    10: <p>
+    11:     <%= form_for [@chat,@chat.messages.build] do |f|%>
+    12:         <%= f.text_area :text%><%= f.submit "送信" %>
+    13:     <%end%>
+    14: </p>
+  app/views/chats/show.html.erb:11:in `_app_views_chats_show_html_erb__3809784280403257651_70239069619980'
+
+
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (79.1ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (2.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (81.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (171.2ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 10:52:22 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1
+  Rendered chats/show.html.erb within layouts/application (17.7ms)
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 12.4ms)
+
+ActionView::Template::Error (undefined method `messages' for #<Chat::ActiveRecord_Associations_CollectionProxy:0x007ffb29e325c0>):
+     8: </p>
+     9: 
+    10: <p>
+    11:     <%= form_for [@user,@user.chats.messages.build] do |f|%>
+    12:         <%= f.text_area :text%><%= f.submit "送信" %>
+    13:     <%end%>
+    14: </p>
+  app/views/chats/show.html.erb:11:in `_app_views_chats_show_html_erb___4076649491703698851_70358357076580'
+
+
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (75.6ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (72.7ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (156.1ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 10:56:58 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (14.6ms)
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 19.1ms)
+
+ActionView::Template::Error (undefined method `messages_path' for #<#<Class:0x007ffb2d923530>:0x007ffb2d91b1f0>):
+     8: </p>
+     9: 
+    10: <p>
+    11:     <%= form_for @message do |f|%>
+    12:         <%= f.text_area :text%><%= f.submit "送信" %>
+    13:     <%end%>
+    14: </p>
+  app/views/chats/show.html.erb:11:in `_app_views_chats_show_html_erb___4076649491703698851_70358389016980'
+
+
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.2ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.2ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (98.8ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (74.9ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (152.0ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 10:57:00 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (13.6ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.3ms)
+
+ActionView::Template::Error (undefined method `messages_path' for #<#<Class:0x007ffb2d923530>:0x007ffb2e003418>):
+     8: </p>
+     9: 
+    10: <p>
+    11:     <%= form_for @message do |f|%>
+    12:         <%= f.text_area :text%><%= f.submit "送信" %>
+    13:     <%end%>
+    14: </p>
+  app/views/chats/show.html.erb:11:in `_app_views_chats_show_html_erb___4076649491703698851_70358389016980'
+
+
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.2ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (93.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (75.1ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (167.5ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:00:42 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  Rendered chats/show.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 20.9ms)
+
+SyntaxError (/Users/hikaru/Github/LINE/app/views/chats/show.html.erb:11: syntax error, unexpected tLABEL, expecting keyword_do or '{' or '('
+...user_chat_messages_path method: :post do |f|@output_buffer.s...
+...                               ^
+/Users/hikaru/Github/LINE/app/views/chats/show.html.erb:16: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/chats/show.html.erb:11: syntax error, unexpected tLABEL, expecting keyword_do or '{' or '('
+  app/views/chats/show.html.erb:16: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.7ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (78.9ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (63.1ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (142.1ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:01:00 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (4.8ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.2ms)
+
+ActionView::Template::Error (No route matches {:action=>"index", :controller=>"messages", :id=>"1", :user_id=>"1"} missing required keys: [:chat_id]):
+     8: </p>
+     9: 
+    10: <p>
+    11:     <%= form_for @message, url: user_chat_messages_path, method: :post do |f|%>
+    12:         <%= f.text_area :text%><%= f.submit "送信" %>
+    13:     <%end%>
+    14: </p>
+  app/views/chats/show.html.erb:11:in `_app_views_chats_show_html_erb___4076649491703698851_70358368418640'
+
+
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (67.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (64.6ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (134.3ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:01:54 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.2ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 242ms (Views: 237.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:03:41 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 26ms (Views: 22.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:04:04 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 26ms (Views: 21.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users/1/chats/1/messages" for ::1 at 2017-03-17 11:04:11 +0900
+
+AbstractController::ActionNotFound (The action 'create' could not be found for MessagesController):
+  actionpack (4.2.5) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.5) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.5) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.5) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.5) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:76:in `call'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.5) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (89.7ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (169.1ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:10:47 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1[0m
+  Rendered chats/show.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 310ms (Views: 242.2ms | ActiveRecord: 16.0ms)
+
+
+Started POST "/users/1/chats/1/messages" for ::1 at 2017-03-17 11:10:55 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nd3vAfAqBemUAde8rUaW7rqqiPTBkwt6e0HuA/KXtkCZNfSldUY37Gic/cu1/fr2lxa/I0zRiyu/+B02JgdpZQ==", "message"=>{"text"=>"へえええー"}, "commit"=>"送信", "user_id"=>"1", "chat_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('へえええー', 1, '2017-03-17 02:10:55', '2017-03-17 02:10:55')[0m
+  [1m[35m (2.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/1/chats/1
+Completed 302 Found in 9ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:10:55 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 28ms (Views: 24.9ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/1/chats/1/messages" for ::1 at 2017-03-17 11:11:03 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"veIja3ulAaTOZ0CEMD2sY9HxijxVedBbueyyCv9u6mu5CjjP/skzoTL6avMohsB7/E2969g7UAp9VUE/K/41Tg==", "message"=>{"text"=>"うむーー"}, "commit"=>"送信", "user_id"=>"1", "chat_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('うむーー', 1, '2017-03-17 02:11:03', '2017-03-17 02:11:03')
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/1/chats/1
+Completed 302 Found in 8ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:11:03 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1[0m
+  Rendered chats/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 38ms (Views: 34.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:11:52 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1[0m
+  Rendered chats/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 25ms (Views: 20.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:12:08 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1[0m
+  Rendered chats/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 29ms (Views: 25.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:12:16 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1[0m
+  Rendered chats/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 28ms (Views: 23.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:12:18 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1[0m
+  Rendered chats/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 30ms (Views: 26.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/1/chats/1/messages" for ::1 at 2017-03-17 11:12:40 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/Lf6IyCJw2O3tk/qdD0zcVyZfUGHhXieqX2oGeednOn4X+GHpeXxZksrZZ1shl9pcSVKlgrH+M9txFssMw1DzA==", "message"=>{"text"=>"なんなん\r\nまじむり"}, "commit"=>"送信", "user_id"=>"1", "chat_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('なんなん\r\nまじむり', 1, '2017-03-17 02:12:40', '2017-03-17 02:12:40')[0m
+  [1m[35m (2.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/1/chats/1
+Completed 302 Found in 11ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:12:40 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (1.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 47ms (Views: 41.3ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/users/1/chats/1/messages" for ::1 at 2017-03-17 11:12:47 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pkfqN5+JS1Ps+lZcO0aaIXJyOmDeRMbzTfXnQXBWMluir/GTGuV5VhBnfCsj/fY5X84Nt1MGRqKJTBR0pMbtfg==", "message"=>{"text"=>"はらへった"}, "commit"=>"送信", "user_id"=>"1", "chat_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('はらへった', 1, '2017-03-17 02:12:47', '2017-03-17 02:12:47')
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/1/chats/1
+Completed 302 Found in 16ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:12:47 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1[0m
+  Rendered chats/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 43ms (Views: 38.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 11:12:55 +0900
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 59ms (Views: 57.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 11:12:55 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for ::1 at 2017-03-17 11:12:57 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2[0m
+  [1m[35mFriend Load (0.4ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 2
+  Rendered users/show.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 49ms (Views: 42.6ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/users/2/friends/new" for ::1 at 2017-03-17 11:12:59 +0900
+Processing by FriendsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered friends/new.html.erb within layouts/application (31.8ms)
+Completed 200 OK in 61ms (Views: 58.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/2/friends" for ::1 at 2017-03-17 11:13:02 +0900
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UMuf1OLqmUaYGXKcLBUjDHmTFjw6KwLSCjiXfUYPsFJUI4RwZ4arQ2SEWOs0rk8UVC8h67dpgoPOgWRIkp9vdw==", "friend"=>{"friend_id"=>"1"}, "commit"=>"友達に追加", "user_id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `friends` (`friend_id`, `user_id`, `created_at`, `updated_at`) VALUES (1, 2, '2017-03-17 02:13:02', '2017-03-17 02:13:02')
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 8ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/2" for ::1 at 2017-03-17 11:13:02 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2[0m
+  [1m[35mFriend Load (0.3ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 2
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 25ms (Views: 22.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/2/friends/5" for ::1 at 2017-03-17 11:13:05 +0900
+Processing by FriendsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"5"}
+  [1m[35mFriend Load (0.6ms)[0m  SELECT  `friends`.* FROM `friends` WHERE `friends`.`id` = 5 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered friends/show.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 48ms (Views: 43.1ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/users/2/chats" for ::1 at 2017-03-17 11:13:07 +0900
+Processing by ChatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tXfQ5TmlyZnO0AAXSK1PLKTXRangf1BlIE6b9pU8Rsexn8tBvMn7nDJNKmBQFiM0iWtyfm090DTk92jDQayZ4g==", "chat"=>{"send_to_ID"=>"1"}, "commit"=>"トークを始める", "user_id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `chats` (`send_to_ID`, `user_id`, `created_at`, `updated_at`) VALUES (1, 2, '2017-03-17 02:13:07', '2017-03-17 02:13:07')[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 8ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users/2" for ::1 at 2017-03-17 11:13:07 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mFriend Load (0.3ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 38ms (Views: 35.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/2/chats/4" for ::1 at 2017-03-17 11:13:09 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"4"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 4 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 4[0m
+  Rendered chats/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 44ms (Views: 37.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/2/chats/4" for ::1 at 2017-03-17 11:13:40 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"4"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 4 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 4[0m
+  Rendered chats/show.html.erb within layouts/application (20.3ms)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 21.2ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    12: ------------------------------------------------------------------------
+    13: 
+    14: <p>
+    15:     <%= form_for @message, url: user_chat_messages_path(@user.id,@chat.id), method: :post do |f|%>
+    16:         <%= f.text_area :text%>   <%= f.submit "送信" %>
+    17:     <%end%>
+    18: </p>
+  app/views/chats/show.html.erb:15:in `_app_views_chats_show_html_erb___3760320493967543100_70187072097300'
+
+
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (73.2ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (77.0ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/hikaru/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (171.7ms)
+
+
+Started GET "/users/2/chats/4" for ::1 at 2017-03-17 11:18:12 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"4"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 4 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 4[0m
+  Rendered chats/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 82ms (Views: 34.8ms | ActiveRecord: 22.0ms)
+
+
+Started POST "/users/2/chats/4/messages" for ::1 at 2017-03-17 11:18:28 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6gxw44SZ3CPBWiFYE6PFMq1eQmRXnzLIZi4jrOoga3zu5GtHAfXuJj3HCy8LGKkqgOJ1s9rdspmil9CZPrC0WQ==", "message"=>{"text"=>""}, "commit"=>"送信", "user_id"=>"2", "chat_id"=>"4"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('', 4, '2017-03-17 02:18:28', '2017-03-17 02:18:28')[0m
+  [1m[35m (2.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/2/chats/4
+Completed 302 Found in 10ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/users/2/chats/4" for ::1 at 2017-03-17 11:18:28 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 4 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 4
+  Rendered chats/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 28ms (Views: 24.3ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/2/chats/4/messages" for ::1 at 2017-03-17 11:18:29 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vEgL5bwXvzc1mCAJIGKVZ6dhTYhR0i/CFTAYIhE97ty4oBBBOXuNMskFCn442fl/it16X9yQr5PRiesXxa0x+Q==", "message"=>{"text"=>""}, "commit"=>"送信", "user_id"=>"2", "chat_id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 4 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('', 4, '2017-03-17 02:18:29', '2017-03-17 02:18:29')
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/2/chats/4
+Completed 302 Found in 8ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/users/2/chats/4" for ::1 at 2017-03-17 11:18:29 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"4"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 4 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 4[0m
+  Rendered chats/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 32ms (Views: 28.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users/2/chats/4/messages" for ::1 at 2017-03-17 11:18:30 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M9nGSJ+tp10vrBDh1r4l6JIVisLcFZ/WTIP8JWB8uDw3Md3sGsGVWNMxOpbOBUnwv6m9FVFXH4eIOg8QtOxnGQ==", "message"=>{"text"=>""}, "commit"=>"送信", "user_id"=>"2", "chat_id"=>"4"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('', 4, '2017-03-17 02:18:30', '2017-03-17 02:18:30')[0m
+  [1m[35m (2.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/2/chats/4
+Completed 302 Found in 9ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/users/2/chats/4" for ::1 at 2017-03-17 11:18:30 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 4 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 4
+  Rendered chats/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 28ms (Views: 24.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/2/chats/4/messages" for ::1 at 2017-03-17 11:18:33 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AE/OxIDYMEhGzZk73WzEzF5PuAVaNw21FV6QqbcDVKUEp9VgBbQCTbpQs0zF16jUc/OP0td1jeTR52OcY5OLgA==", "message"=>{"text"=>"wdsdc"}, "commit"=>"送信", "user_id"=>"2", "chat_id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 4 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('wdsdc', 4, '2017-03-17 02:18:33', '2017-03-17 02:18:33')
+  [1m[36m (3.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/2/chats/4
+Completed 302 Found in 11ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/users/2/chats/4" for ::1 at 2017-03-17 11:18:33 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"4"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 4 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 4[0m
+  Rendered chats/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 40ms (Views: 34.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users/2/chats/4/messages" for ::1 at 2017-03-17 11:18:38 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T2Cp1L8I0xxNfIF7cWRtDGiXLAMWQpT6umvsiRfaSGdLiLJwOmThGbHhqwxp3wEURSsb1JsAFKt+0h+8w0qXQg==", "message"=>{"text"=>"sds"}, "commit"=>"送信", "user_id"=>"2", "chat_id"=>"4"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('sds', 4, '2017-03-17 02:18:38', '2017-03-17 02:18:38')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/2/chats/4
+Completed 302 Found in 11ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/users/2/chats/4" for ::1 at 2017-03-17 11:18:38 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 4 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 4
+  Rendered chats/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 39ms (Views: 32.2ms | ActiveRecord: 1.7ms)
+  [1m[36m (19.0ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (30.4ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20170316010219)
+  [1m[35m (20.8ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `lineID` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20170316010219')
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateChats (20170316021713)
+  [1m[35m (20.6ms)[0m  CREATE TABLE `chats` (`id` int(11) auto_increment PRIMARY KEY, `send_to_ID` int(11), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_chats_on_user_id`  (`user_id`) ) ENGINE=InnoDB
+  [1m[36m (30.6ms)[0m  [1mALTER TABLE `chats` ADD CONSTRAINT `fk_rails_e555f43151`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20170316021713')[0m
+  [1m[35m (2.1ms)[0m  COMMIT
+Migrating to CreateFriends (20170316063615)
+  [1m[36m (33.2ms)[0m  [1mCREATE TABLE `friends` (`id` int(11) auto_increment PRIMARY KEY, `friend_id` int(11), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_friends_on_user_id`  (`user_id`) ) ENGINE=InnoDB[0m
+  [1m[35m (38.1ms)[0m  ALTER TABLE `friends` ADD CONSTRAINT `fk_rails_9cfeeb4593`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20170316063615')
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMessages (20170317011757)
+  [1m[35m (24.5ms)[0m  CREATE TABLE `messages` (`id` int(11) auto_increment PRIMARY KEY, `text` varchar(255), `chat_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_messages_on_chat_id`  (`chat_id`) ) ENGINE=InnoDB
+  [1m[36m (45.5ms)[0m  [1mALTER TABLE `messages` ADD CONSTRAINT `fk_rails_0f670de7ba`
+FOREIGN KEY (`chat_id`)
+  REFERENCES `chats` (`id`)
+[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20170317011757')[0m
+  [1m[35m (2.4ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'sample_development'
+  AND fk.table_name = 'chats'
+
+  [1m[36m (0.3ms)[0m  [1mSHOW CREATE TABLE `chats`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'sample_development'
+  AND fk.table_name = 'friends'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `friends`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'sample_development'
+  AND fk.table_name = 'messages'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `messages`[0m
+  [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'sample_development'
+  AND fk.table_name = 'users'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `users`[0m
+
+
+Started GET "/users" for ::1 at 2017-03-17 11:19:28 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 370ms (Views: 296.6ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/" for ::1 at 2017-03-17 11:19:29 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 49ms (Views: 48.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-03-17 11:19:29 +0900
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/new" for ::1 at 2017-03-17 11:19:31 +0900
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (24.8ms)
+Completed 200 OK in 55ms (Views: 48.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for ::1 at 2017-03-17 11:19:37 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qHEtycESvhcyffzDCHlcEwsYf7lsHmbeEhaub4VoCrCsmTZtRH6MEs7g1rQQwjALJqRIbuFc5o/Wr11aUfjVlQ==", "user"=>{"name"=>"おんどう", "lineID"=>"っっd"}, "commit"=>"Create User"}
+Unpermitted parameter: lineID
+Unpermitted parameter: name
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`name`, `lineID`, `created_at`, `updated_at`) VALUES ('おんどう', 'っっd', '2017-03-17 02:19:37', '2017-03-17 02:19:37')
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 6ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 11:19:37 +0900
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.3ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 55ms (Views: 53.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/new" for ::1 at 2017-03-17 11:19:38 +0900
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 50ms (Views: 48.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-03-17 11:19:42 +0900
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lk0dj7WYzj5FK8sV8mR2zXrDxC8KiOPUY8NMrNcEQCySpQYrMPT8O7m24WLq3xrVV3/z+IfKY4Wner+ZA5SfCQ==", "user"=>{"name"=>"nukkunn ", "lineID"=>""}, "commit"=>"Create User"}
+Unpermitted parameter: lineID
+Unpermitted parameter: name
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`name`, `lineID`, `created_at`, `updated_at`) VALUES ('nukkunn ', '', '2017-03-17 02:19:43', '2017-03-17 02:19:43')
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 5ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 11:19:43 +0900
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 26ms (Views: 25.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 11:19:44 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1
+  [1m[36mFriend Load (0.3ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1[0m
+  Rendered users/show.html.erb within layouts/application (53.9ms)
+Completed 200 OK in 111ms (Views: 88.9ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/users/1/friends/new" for ::1 at 2017-03-17 11:19:45 +0900
+Processing by FriendsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered friends/new.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 56ms (Views: 53.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/1/friends" for ::1 at 2017-03-17 11:19:48 +0900
+Processing by FriendsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i8QezDWVGluaxYSyw/uzk6p8+02Ls/ltx3V92L80H/uPLAVosPkoXmZYrsXbQN+Lh8DMmgbxeTwDzI7ta6TA3g==", "friend"=>{"friend_id"=>"2"}, "commit"=>"友達に追加", "user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `friends` (`friend_id`, `user_id`, `created_at`, `updated_at`) VALUES (2, 1, '2017-03-17 02:19:48', '2017-03-17 02:19:48')[0m
+  [1m[35m (2.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 8ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 11:19:48 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1
+  [1m[36mFriend Load (0.3ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  Rendered users/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 34ms (Views: 31.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1/friends/1" for ::1 at 2017-03-17 11:19:50 +0900
+Processing by FriendsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mFriend Load (0.9ms)[0m  [1mSELECT  `friends`.* FROM `friends` WHERE `friends`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  Rendered friends/show.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 53ms (Views: 46.6ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/users/1/chats" for ::1 at 2017-03-17 11:19:52 +0900
+Processing by ChatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PXa0yTP4RLZ1xKyIHNxtelId8MyuQRH4Cj0d08AbKN05nq9ttpR2s4lZhv8EZwFif6HHGyMDkanOhO7mFIv3+A==", "chat"=>{"send_to_ID"=>"2"}, "commit"=>"トークを始める", "user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `chats` (`send_to_ID`, `user_id`, `created_at`, `updated_at`) VALUES (2, 1, '2017-03-17 02:19:52', '2017-03-17 02:19:52')
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 7ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 11:19:52 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mFriend Load (0.3ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  Rendered users/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 32ms (Views: 30.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:19:53 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.6ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 62ms (Views: 26.9ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:22:03 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.2ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 25ms (Views: 21.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/1/chats/1/messages" for ::1 at 2017-03-17 11:22:14 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F1pP5q+STVoEGK28VQhRayFFfHudBi9PMnPRJ0YGfRUTslRCKv5/X/iFh8tNsz1zDPlLrBBErx72yiISkpaiMA==", "message"=>{"text"=>"こんにちは"}, "commit"=>"送信", "user_id"=>"1", "chat_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('こんにちは', 1, '2017-03-17 02:22:14', '2017-03-17 02:22:14')
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/1/chats/1
+Completed 302 Found in 9ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:22:14 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1[0m
+  Rendered chats/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 30ms (Views: 26.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/1/chats/1/messages" for ::1 at 2017-03-17 11:22:21 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4WKWfUwImLpdnZ9b2WhgwdLLmIJizLQ3rNtZyzgA4Xzlio3ZyWSqv6EAtSzB0wzZ/3evVe+ONGZoYqr+7JA+WQ==", "message"=>{"text"=>"こんにちは"}, "commit"=>"送信", "user_id"=>"1", "chat_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('こんにちは', 1, '2017-03-17 02:22:21', '2017-03-17 02:22:21')[0m
+  [1m[35m (1.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/1/chats/1
+Completed 302 Found in 9ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:22:21 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 32ms (Views: 27.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:24:46 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 95ms (Views: 50.1ms | ActiveRecord: 16.7ms)
+
+
+Started POST "/users/1/chats/1/messages" for ::1 at 2017-03-17 11:24:58 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zRZXOLuCfH71Wqx5E25ggzf/bpLtOyz8g7yHy07Z9sLJ/kycPu5OewnHhg4L1QybGkNZRWB5rK1HBXT+mkkp5w==", "message"=>{"text"=>"あんや"}, "commit"=>"送信", "user_id"=>"1", "chat_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.2ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('あんや', 1, '2017-03-17 02:24:58', '2017-03-17 02:24:58')
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/1/chats/1
+Completed 302 Found in 9ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:24:58 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1[0m
+  Rendered chats/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 31ms (Views: 27.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/1/chats/1/messages" for ::1 at 2017-03-17 11:25:07 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TBbSIIbea2orLG14Vvw+C2gyrhmfhLnZvAezHViiFJFI/smEA7JZb9exRw9OR1ITRY6ZzhLGOYh4vkAojDLLtA==", "message"=>{"text"=>"よくわからん"}, "commit"=>"送信", "user_id"=>"1", "chat_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('よくわからん', 1, '2017-03-17 02:25:07', '2017-03-17 02:25:07')[0m
+  [1m[35m (2.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/1/chats/1
+Completed 302 Found in 8ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:25:07 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 28ms (Views: 24.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:25:19 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 27ms (Views: 23.4ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users/1/chats/1/messages" for ::1 at 2017-03-17 11:25:26 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bUWVWmuIRXDfBSu8XpoyCsjt5yF6aREYymbP7gW6XXRprY7+7uR3dSOYActGIV4S5VHQ9vcrkUkO3zzb0SqCUQ==", "message"=>{"text"=>"まあいいや"}, "commit"=>"送信", "user_id"=>"1", "chat_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('まあいいや', 1, '2017-03-17 02:25:26', '2017-03-17 02:25:26')
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/1/chats/1
+Completed 302 Found in 8ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:25:26 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1[0m
+  Rendered chats/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 31ms (Views: 27.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/1/chats/1/messages" for ::1 at 2017-03-17 11:25:36 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W+pLjuj+eM0sEa40Bw+V4GFEdfSZriJ99XN3iVT+oKZfAlAqbZJKyNCMhEMftPn4TPhCIxTsoiwxyoS8gG5/gw==", "message"=>{"text"=>"いいかんじ！"}, "commit"=>"送信", "user_id"=>"1", "chat_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('いいかんじ！', 1, '2017-03-17 02:25:36', '2017-03-17 02:25:36')[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/1/chats/1
+Completed 302 Found in 8ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/users/1/chats/1" for ::1 at 2017-03-17 11:25:36 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  Rendered chats/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 29ms (Views: 25.7ms | ActiveRecord: 1.2ms)
