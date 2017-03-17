@@ -29,13 +29,19 @@
     border-bottom: 1px solid #111;
     line-height: 3.0;
  }
- table td#right{
-     text-align: right;
+ table#talk tr{
      width: 700px;
  }
- table td#left{
+ table#talk td{
+     width: 350px;
+ }
+ table#talk td#right{
+     text-align: right;
+     width: 350px;
+ }
+ table#talk td#left{
      text-align: left;
-     width: 700px;
+     width: 350px;
  }
  table th.title{
      text-align: center;

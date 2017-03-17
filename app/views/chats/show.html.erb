@@ -21,10 +21,10 @@
             <tbody>
                 <% a.each do |message| %>
                 <tr>
-                    <% if message.chat.user==User.find(@chat.send_to_ID).id %>
-                        <td id="right"><%= message.text %></td>
+                    <% if message.chat.user.id!=User.find(@chat.send_to_ID).id %>
+                        <td></td><td id="right"><%= message.text %></td>
                         <% else %>
-                        <td id="left"><%= message.text %></td>
+                        <td id="left"><%= message.text %></td><td></td>
                     <% end %>
                 </tr>
                 <% end %>
