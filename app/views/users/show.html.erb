@@ -38,10 +38,18 @@
                     <% chat2=user2.chats.find_by(send_to_ID: @user.id) %>
                     <% message=chat.messages.last %>
                     <% message2=chat2.messages.last %>
-                    <% if message.created_at > message2.created_at %>
-                        <td><%= message.text %></td>
-                    <% else %>
+                    <% if message2 != nil && message != nil %>
+                        <% if message.created_at > message2.created_at %>
+                            <td><%= message.text %></td>
+                            <% else %>
+                            <td><%= message2.text %></td>
+                        <% end %>
+                        <% elsif message2 !=nil%>
                         <td><%= message2.text %></td>
+                        <% elsif message !=nil%>
+                        <td><%= message.text %></td>
+                        <% else %>
+                        <td></td>
                     <% end %>
                     <td class="delete"><%= link_to "削除する",user_chat_path(chat.user_id,chat.id),method: :delete,data: {confirm: "このトークを本当に削除して良いですか？？"} %></td>
         		</tr>
