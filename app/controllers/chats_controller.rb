@@ -1,8 +1,14 @@
 class ChatsController < ApplicationController
     def create
         @user=User.find(params[:user_id])
-        @chat=@user.chats.create(send_to_ID: params[:chat].permit(:send_to_ID)[:send_to_ID] )
-        redirect_to user_path(params[:user_id])
+        chat=@user.chats.find_by(send_to_ID: params[:chat].permit(:send_to_ID)[:send_to_ID] )
+        if chat==nil
+            @chat=@user.chats.create(send_to_ID: params[:chat].permit(:send_to_ID)[:send_to_ID] )
+            redirect_to user_chat_path(@user.id,@chat.id)
+        else
+            @chat=chat
+            redirect_to user_chat_path(@user.id,@chat.id)
+        end
     end
     def destroy
         @chat=Chat.find(params[:id])
