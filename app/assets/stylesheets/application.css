@@ -29,7 +29,7 @@
     border-bottom: 1px solid #111;
     line-height: 3.0;
  }
- table#talk tr{
+ table#talk th{
      width: 700px;
  }
  table#talk td{

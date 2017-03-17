@@ -51,7 +51,7 @@
                         <% else %>
                         <td></td>
                     <% end %>
-                    <td class="delete"><%= link_to "削除する",user_chat_path(chat.user_id,chat.id),method: :delete,data: {confirm: "このトークを本当に削除して良いですか？？"} %></td>
+                    <td class="delete"><%= link_to "削除する",user_chat_path(chat.user.id,chat.id),method: :delete,data: {confirm: "このトークを本当に削除して良いですか？？"} %></td>
         		</tr>
                 <%end%>
         	</tbody>
@@ -68,7 +68,7 @@
                 <%@user.friends.each do |friend|%>
         		<tr>
         			<th><%= link_to User.find(friend.friend_id).name,user_friend_path(friend.user_id,friend.id) %></th>
-                    <td><%= User.find(friend.friend_id).lineID %></td>
+                    <td>ID:<%= User.find(friend.friend_id).lineID %></td>
                 </tr>
                 <%end%>
         	</tbody>
