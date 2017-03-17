@@ -1,0 +1,16 @@
+<h1><%= User.find(@friend.friend_id).name %></h1>
+lineID:<%= User.find(@friend.friend_id).lineID %>
+
+<p>
+<%= link_to "友達から削除する",user_friend_path(@friend.user_id,@friend.id),method: :delete,data: {confirm: User.find(@friend.friend_id).name+"を本当に友達から削除して良いですか？？"} %>
+</p>
+<p>
+    <%= form_for [@user,@user.chats.build] do |f|%>
+    <p>
+        <%= f.hidden_field :send_to_ID ,value: @friend.friend_id %>
+    </p>
+    <p>
+        <%= f.submit "トークを始める"%>
+    </p>
+    <%end%>
+</p>
