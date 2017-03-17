@@ -28064,3 +28064,1646 @@ Processing by UsersController#index as HTML
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
   Rendered users/index.html.erb within layouts/application (1.9ms)
 Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2" for ::1 at 2017-03-17 20:55:39 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (1.9ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.6ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 2  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 3 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 3  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 4  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mMessage Load (0.9ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 16  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 15  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mFriend Load (0.3ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered users/show.html.erb within layouts/application (33.1ms)
+Completed 200 OK in 119ms (Views: 107.5ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/users/2/chats/16" for ::1 at 2017-03-17 20:55:46 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"16"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.6ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 16 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  [1m[36mChat Load (1.8ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 4], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 16[0m
+  [1m[35mMessage Load (0.7ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 15
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  Rendered chats/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 49ms (Views: 36.2ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/users/2/chats/16/messages" for ::1 at 2017-03-17 20:55:51 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3XKNHLcediapv9pGd0qFhsO0ikSHb0XNL+pdzL8sETHZmpa4MnJEI1Ui8DFv8eme7gi9kwotxZzrU675a7zOFA==", "message"=>{"text"=>"うい"}, "commit"=>"送信", "user_id"=>"2", "chat_id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 16 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('うい', 16, '2017-03-17 11:55:51', '2017-03-17 11:55:51')
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/2/chats/16
+Completed 302 Found in 10ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/users/2/chats/16" for ::1 at 2017-03-17 20:55:51 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"16"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 16 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 4], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 16[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 15
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  Rendered chats/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 48ms (Views: 41.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/2" for ::1 at 2017-03-17 20:55:53 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 2  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 3 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 3  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 4  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mChat Load (0.5ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 16  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 15  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mFriend Load (0.4ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered users/show.html.erb within layouts/application (32.1ms)
+Completed 200 OK in 65ms (Views: 56.5ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/users/2/friends/2" for ::1 at 2017-03-17 20:56:11 +0900
+Processing by FriendsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[35mFriend Load (0.3ms)[0m  SELECT  `friends`.* FROM `friends` WHERE `friends`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered friends/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 47ms (Views: 43.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/2/chats/16" for ::1 at 2017-03-17 20:56:47 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"16"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 16 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[35mChat Load (0.5ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m  [["user_id", 4], ["send_to_ID", 2]]
+  [1m[35mMessage Load (0.8ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 16
+  [1m[36mMessage Load (0.7ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 15[0m
+  [1m[35mCACHE (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  Rendered chats/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 55ms (Views: 42.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/users/2" for ::1 at 2017-03-17 20:56:51 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.4ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 2  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mChat Load (0.6ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 3 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 3  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.7ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 4  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 16  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 15  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mFriend Load (0.3ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered users/show.html.erb within layouts/application (33.1ms)
+Completed 200 OK in 55ms (Views: 45.9ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/users/2/friends/24" for ::1 at 2017-03-17 20:57:03 +0900
+Processing by FriendsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"24"}
+  [1m[36mFriend Load (0.4ms)[0m  [1mSELECT  `friends`.* FROM `friends` WHERE `friends`.`id` = 24 LIMIT 1[0m
+  [1m[35mUser Load (1.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered friends/show.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 41ms (Views: 36.1ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/users/2/chats" for ::1 at 2017-03-17 20:57:05 +0900
+Processing by ChatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2QODObrRwvMh97cOLzfRxa4W1g1TJ8I7Jpk4DvpU9Dzd65idP73w9t1qnXk3jL3dg6rh2t5lQmriIMs7LsQrGQ==", "chat"=>{"send_to_ID"=>"5"}, "commit"=>"トークを始める", "user_id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `chats` (`send_to_ID`, `user_id`, `created_at`, `updated_at`) VALUES (5, 2, '2017-03-17 11:57:05', '2017-03-17 11:57:05')[0m
+  [1m[35m (2.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/2/chats/37
+Completed 302 Found in 9ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 20:57:05 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `chats` (`send_to_ID`, `user_id`, `created_at`, `updated_at`) VALUES (2, 5, '2017-03-17 11:57:05', '2017-03-17 11:57:05')
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `friends` (`friend_id`, `user_id`, `created_at`, `updated_at`) VALUES (2, 5, '2017-03-17 11:57:05', '2017-03-17 11:57:05')[0m
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  Rendered chats/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 42ms (Views: 26.3ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/users/2/chats/37/messages" for ::1 at 2017-03-17 20:57:11 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qKIWnUDxDE39AjqcpUhBWwHABIUFkQdYwfzXIYvbeACsSg05xZ0+SAGfEOu98y1DLHwzUojThwkFRSQUX0unJQ==", "message"=>{"text"=>"にゃんにゃん"}, "commit"=>"送信", "user_id"=>"2", "chat_id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('にゃんにゃん', 37, '2017-03-17 11:57:11', '2017-03-17 11:57:11')[0m
+  [1m[35m (2.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/2/chats/37
+Completed 302 Found in 8ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 20:57:11 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 29ms (Views: 23.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:00:52 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 100ms (Views: 93.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.self-358ae74e0b746afbd2fa70046daf34a19e31b3116130a285b97bdfa76e816431.css?body=1" for ::1 at 2017-03-17 21:00:52 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:03:18 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 43ms (Views: 37.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-03e5cedc570ceaf7e7cb0917f955ab81db62ad51f944d14d03503a707babf0f2.css?body=1" for ::1 at 2017-03-17 21:03:18 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:04:21 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 42ms (Views: 36.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.self-0913aa3738b98e032fe412c65f120b052529bf8c46d631663ab0cd7c7b16da41.css?body=1" for ::1 at 2017-03-17 21:04:21 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:05:12 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 45ms (Views: 38.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.self-3c3ec9216621f5b1155811b89aed75a745218f6d613ae04983033829b0ee86ea.css?body=1" for ::1 at 2017-03-17 21:05:13 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:05:43 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 35ms (Views: 28.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:08:20 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 109ms (Views: 102.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.self-4dad31a35db3cc7fd13acaa8aa78cf9aad80c280c668e2be0d3e1e386b02d96c.css?body=1" for ::1 at 2017-03-17 21:08:20 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:08:53 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 40ms (Views: 34.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-adb132994fad2429058edbdb6f51ba8153218661f4c8be85bd411f4fda7e50d6.css?body=1" for ::1 at 2017-03-17 21:08:53 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:09:05 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 51ms (Views: 44.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.self-105e4e914a49bc7d4c105e4f38318927a9d510c70cd954e283bc3a70b0f862b0.css?body=1" for ::1 at 2017-03-17 21:09:05 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:09:18 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 58ms (Views: 47.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/application.self-25ace2793413a3ec7ccd010cf06788f02df3f028b2920610b13182603274417b.css?body=1" for ::1 at 2017-03-17 21:09:18 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:09:51 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mMessage Load (0.2ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 49ms (Views: 42.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.self-5abd4e875f8ac2cba9269b365988b906de54d515c5a240ed1cbcc25a437ead41.css?body=1" for ::1 at 2017-03-17 21:09:51 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:10:08 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 48ms (Views: 41.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.self-981b3e4b9121c93f200dc67ee4dc799707aa2b1264f51548c198352261f024f2.css?body=1" for ::1 at 2017-03-17 21:10:08 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:10:21 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.2ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 45ms (Views: 40.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-f88273086071735b06d6a67a6c537a450f038c84c9f615997ca0f7885caeb002.css?body=1" for ::1 at 2017-03-17 21:10:21 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:16:47 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 54ms (Views: 47.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.self-dd5d35ea73fedadbbb2c777126a1d733a3e02af9f03b658deeb0e8f39141a60f.css?body=1" for ::1 at 2017-03-17 21:16:47 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:19:45 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 42ms (Views: 36.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.self-6db7bad7ff35bb4ac28e154e8937291fd30958e82e4c8ed4704a08984e6cd02f.css?body=1" for ::1 at 2017-03-17 21:19:45 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:19:49 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 30ms (Views: 23.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:20:19 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 45ms (Views: 37.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.self-8f3daf694019cc1574019af3003cb92676f539dfafd37da6cce1a2d5cde4e335.css?body=1" for ::1 at 2017-03-17 21:20:19 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:21:14 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 40ms (Views: 34.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.self-a6cd18b204841bb42446d211ec356ad1eb8e160064c0f6812b7723e71f2192a7.css?body=1" for ::1 at 2017-03-17 21:21:14 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:22:06 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 42ms (Views: 36.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-1ed54ba19c5c270f9af96389cd2f90c996f4b7bd779554f7916bccbb3251b411.css?body=1" for ::1 at 2017-03-17 21:22:06 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:26:49 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 103ms (Views: 95.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.self-b70938b7cea05fc608a1e0e8c5c83b64f9e163ed0bc2390ecbb3bd2b3f3d6085.css?body=1" for ::1 at 2017-03-17 21:26:49 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:27:30 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 55ms (Views: 48.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.self-629a127ee7d4557adeb6646d23c3e8297a23ff84c6ebf721d69c770aea0ae1e3.css?body=1" for ::1 at 2017-03-17 21:27:30 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:28:02 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 41ms (Views: 34.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.self-cf097fe451f7a6a45344ee2e3e0c91c602f88b7e92376d847700351b6cd60fe8.css?body=1" for ::1 at 2017-03-17 21:28:02 +0900
+
+
+Started POST "/users/2/chats/37/messages" for ::1 at 2017-03-17 21:28:12 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8w8AAdPVsr34i2g4721WDe8Amvz49eY/71QikJTUnDz35xulVrmAuAQWQk/31joVwrytK3W3Zm4r7dGlQERDGQ==", "message"=>{"text"=>"やほーーーーーーー"}, "commit"=>"送信", "user_id"=>"2", "chat_id"=>"37"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('やほーーーーーーー', 37, '2017-03-17 12:28:12', '2017-03-17 12:28:12')
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/2/chats/37
+Completed 302 Found in 9ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:28:12 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 30ms (Views: 24.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:29:11 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 56ms (Views: 50.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-0c963f8d9b27ff4cb410acea8adbe73608985c3f8507734e51938963d064cfb6.css?body=1" for ::1 at 2017-03-17 21:29:11 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:29:23 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 66ms (Views: 59.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.self-5292f9420231173a9fd0453eec2eb6bdbe924217e35aa656c8466797fc064e8d.css?body=1" for ::1 at 2017-03-17 21:29:23 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:29:39 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 47ms (Views: 41.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.self-e537e34df03ff5ae112895aba0bf6659c873ee769fcf887cd7c0e1cde0cc8a73.css?body=1" for ::1 at 2017-03-17 21:29:39 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:29:50 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 53ms (Views: 44.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.self-536debbc038e42df00ff3a1cbc0c9ceca8a50b7a5a2f65d68ca5e752258c3767.css?body=1" for ::1 at 2017-03-17 21:29:50 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:30:04 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.6ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 50ms (Views: 42.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/application.self-8a74202d7b6a8362ff4e45c945994fd3750b4aa9443d373cdaf763aa4857816f.css?body=1" for ::1 at 2017-03-17 21:30:04 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:30:11 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 45ms (Views: 38.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-26a95ac3372b2550e4d9f0fb54dd4758a2b33ea5b88d3f504fc85efb92a4b721.css?body=1" for ::1 at 2017-03-17 21:30:11 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:30:16 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 53ms (Views: 45.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.self-c3a3e37976de9dd585ddd89613e2fc6d88d2f824c525e70abc4536fcee8d65fa.css?body=1" for ::1 at 2017-03-17 21:30:16 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:31:36 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 91ms (Views: 83.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/application.self-0f43a4888cdcc5db722eb7bc22990585cd0723c396ce0df9e2d28eb3846973e2.css?body=1" for ::1 at 2017-03-17 21:31:36 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:32:47 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 75ms (Views: 69.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-b06e31d1c15d880e7cf4161d4dc856448a69cc69bc83094df476acf972be3a0b.css?body=1" for ::1 at 2017-03-17 21:32:47 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:32:53 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 42ms (Views: 36.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-c9661582eeef96c57a17a9366c423ae0dcc39b60daea98aa2371019ce56d4faf.css?body=1" for ::1 at 2017-03-17 21:32:54 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:33:13 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 41ms (Views: 33.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.self-d7e9bf1219008d5109b26d09569c7a32ebf7870aec307d36eff4c9a05fb7b660.css?body=1" for ::1 at 2017-03-17 21:33:13 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:34:33 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.6ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 96ms (Views: 88.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/application.self-fbaee0faa16593e913192c02a2211c8350798b6032a1b325212c4c7b91529a38.css?body=1" for ::1 at 2017-03-17 21:34:33 +0900
+
+
+Started GET "/users/2/chats/37" for ::1 at 2017-03-17 21:35:54 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"37"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`id` = 37 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1  [["user_id", 5], ["send_to_ID", 2]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  Rendered chats/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 45ms (Views: 37.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.self-411564902b0f113e9fa838c432088e04dd9be0bc8cdcd8de307ecf0862b7fc05.css?body=1" for ::1 at 2017-03-17 21:35:54 +0900
+
+
+Started GET "/users/2" for ::1 at 2017-03-17 21:35:56 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mChat Load (0.5ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 2  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 3 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 3  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 4  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 2 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 16  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 15  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`send_to_ID` = 2 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mFriend Load (0.4ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", 5]]
+  Rendered users/show.html.erb within layouts/application (33.3ms)
+Completed 200 OK in 71ms (Views: 62.8ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 21:35:59 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 50ms (Views: 48.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/5" for ::1 at 2017-03-17 21:36:01 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 5 LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 17  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 18  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mChat Load (0.8ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 3 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 20  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 19  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mFriend Load (0.3ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 5[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  Rendered users/show.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 57ms (Views: 49.4ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/users/5/chats/38" for ::1 at 2017-03-17 21:36:03 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"38"}
+  [1m[35mUser Load (1.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.9ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 38 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1  [["user_id", 2], ["send_to_ID", 5]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mMessage Load (0.5ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  Rendered chats/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 48ms (Views: 34.1ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/users/5/chats/38" for ::1 at 2017-03-17 21:36:57 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"38"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 38 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1  [["user_id", 2], ["send_to_ID", 5]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  Rendered chats/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 42ms (Views: 35.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-0486a0da5259d225b31e3653627d26dbd6a7c7e225d7f4eb80c0bee874987113.css?body=1" for ::1 at 2017-03-17 21:36:57 +0900
+
+
+Started GET "/users/5/chats/38" for ::1 at 2017-03-17 21:37:14 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"38"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 38 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1  [["user_id", 2], ["send_to_ID", 5]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  Rendered chats/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 42ms (Views: 36.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-8ec55bfc4c675abb22ed8d2917d89869d2b92f94e23c666083e6c1ed651ceb84.css?body=1" for ::1 at 2017-03-17 21:37:14 +0900
+
+
+Started GET "/users/5/chats/38" for ::1 at 2017-03-17 21:37:20 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"38"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 38 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1  [["user_id", 2], ["send_to_ID", 5]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  Rendered chats/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 51ms (Views: 44.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.self-6beb71e3b31d387ac5226facd9d1eb293b6684ed4d797e57182db94ebcb49840.css?body=1" for ::1 at 2017-03-17 21:37:20 +0900
+
+
+Started GET "/users/5/chats/38" for ::1 at 2017-03-17 21:37:32 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"38"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 38 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1  [["user_id", 2], ["send_to_ID", 5]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  Rendered chats/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 43ms (Views: 36.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-9b73859441c3f42251bfef02aac74442b7f900e643c5f11aa357ec7b50e440eb.css?body=1" for ::1 at 2017-03-17 21:37:32 +0900
+
+
+Started POST "/users/5/chats/38/messages" for ::1 at 2017-03-17 21:37:51 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TYu4qTGORDFIHMYDvs3XdLgF4GhgEx1wqgIiEHsJz+9JY6MNtOJ2NLSB7HSmdrtslbnXv+1RnSFuu9Elr5kQyg==", "message"=>{"text"=>"こんにちはーーー"}, "commit"=>"送信", "user_id"=>"5", "chat_id"=>"38"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 38 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('こんにちはーーー', 38, '2017-03-17 12:37:51', '2017-03-17 12:37:51')[0m
+  [1m[35m (2.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/5/chats/38
+Completed 302 Found in 9ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/users/5/chats/38" for ::1 at 2017-03-17 21:37:51 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"38"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 38 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m  [["user_id", 2], ["send_to_ID", 5]]
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  Rendered chats/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 37ms (Views: 30.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/5/chats/38" for ::1 at 2017-03-17 21:39:26 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"38"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 38 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1  [["user_id", 2], ["send_to_ID", 5]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  Rendered chats/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 84ms (Views: 78.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.self-34144b2f23dca708ab0563825db377673ea7eba4869d811aca3ef33ca682dde7.css?body=1" for ::1 at 2017-03-17 21:39:26 +0900
+
+
+Started GET "/users/5/chats/38" for ::1 at 2017-03-17 21:41:25 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"38"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 38 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m  [["user_id", 2], ["send_to_ID", 5]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  Rendered chats/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 41ms (Views: 35.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.self-9c6075c57237710a735ea8323526b7ea305de9f109f300256bc4858857703f9e.css?body=1" for ::1 at 2017-03-17 21:41:25 +0900
+
+
+Started POST "/users/5/chats/38/messages" for ::1 at 2017-03-17 21:41:49 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yHWWcjAAMY6KqRfuehUcpb1EmE9c8AYAm0p1+wRNXx7MnY3WtWwDi3Y0PZlirnC9kPivmNGyhlFf84bO0N2AOw==", "message"=>{"text"=>"なんかちげええwww"}, "commit"=>"送信", "user_id"=>"5", "chat_id"=>"38"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 38 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('なんかちげええwww', 38, '2017-03-17 12:41:49', '2017-03-17 12:41:49')[0m
+  [1m[35m (6.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/5/chats/38
+Completed 302 Found in 12ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/users/5/chats/38" for ::1 at 2017-03-17 21:41:49 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"38"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 38 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m  [["user_id", 2], ["send_to_ID", 5]]
+  [1m[35mMessage Load (0.7ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  Rendered chats/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 31ms (Views: 24.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/5" for ::1 at 2017-03-17 21:42:16 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.4ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 17  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 18  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mUser Load (1.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mChat Load (0.8ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 3 AND `chats`.`send_to_ID` = 5 LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 20  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 19  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mFriend Load (0.3ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 5
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  Rendered users/show.html.erb within layouts/application (40.7ms)
+Completed 200 OK in 63ms (Views: 54.3ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/users/5/friends/28" for ::1 at 2017-03-17 21:42:21 +0900
+Processing by FriendsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"28"}
+  [1m[36mFriend Load (1.9ms)[0m  [1mSELECT  `friends`.* FROM `friends` WHERE `friends`.`id` = 28 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  Rendered friends/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 40ms (Views: 34.4ms | ActiveRecord: 2.9ms)
+
+
+Started DELETE "/users/5/friends/28" for ::1 at 2017-03-17 21:42:24 +0900
+Processing by FriendsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"x4IGkB2914j5JAbxIZS0FnOqgxMhT9qJSXTiHq047IXDah00mNHljQW5LIY5L9gOXha0xKwNWtiNzREreagzoA==", "user_id"=>"5", "id"=>"28"}
+  [1m[35mFriend Load (0.4ms)[0m  SELECT  `friends`.* FROM `friends` WHERE `friends`.`id` = 28 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM `friends` WHERE `friends`.`id` = 28
+  [1m[36m (5.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 10ms (ActiveRecord: 6.9ms)
+
+
+Started GET "/users/5" for ::1 at 2017-03-17 21:42:24 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 5 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 17  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 18  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 3 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 20  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 19  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mFriend Load (0.3ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 5[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  Rendered users/show.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 44ms (Views: 37.4ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users/5/chats/20" for ::1 at 2017-03-17 21:42:29 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"20"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 20 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mChat Load (0.6ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 3 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 3 AND `chats`.`send_to_ID` = 5 LIMIT 1  [["user_id", 3], ["send_to_ID", 5]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 20[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 19
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  Rendered chats/show.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 53ms (Views: 42.4ms | ActiveRecord: 3.4ms)
+
+
+Started DELETE "/users/5/chats/20" for ::1 at 2017-03-17 21:42:37 +0900
+Processing by ChatsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"hCaIbe7U3PJsxKTZkEMYxBMcWGQdvPivjM8wOAQc2hCAzpPJa7ju95BZjq6I+HTcPqBvs5D+eP5IdsMN0IwFNQ==", "user_id"=>"5", "id"=>"20"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 20 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 3 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 20
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 19[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `messages` WHERE `messages`.`id` = 27[0m
+  [1m[35m (2.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM `messages` WHERE `messages`.`id` = 28
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `messages` WHERE `messages`.`id` = 39[0m
+  [1m[35m (2.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `messages` WHERE `messages`.`id` = 40
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `messages` WHERE `messages`.`id` = 41[0m
+  [1m[35m (2.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `messages` WHERE `messages`.`id` = 42
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `messages` WHERE `messages`.`id` = 43[0m
+  [1m[35m (2.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM `messages` WHERE `messages`.`id` = 44
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `messages` WHERE `messages`.`id` = 45[0m
+  [1m[35m (2.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `messages` WHERE `messages`.`id` = 46
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `messages` WHERE `messages`.`id` = 47[0m
+  [1m[35m (2.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `messages` WHERE `messages`.`id` = 48
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `messages` WHERE `messages`.`id` = 49[0m
+  [1m[35m (2.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `messages` WHERE `messages`.`id` = 50
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `messages` WHERE `messages`.`id` = 51[0m
+  [1m[35m (2.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `messages` WHERE `messages`.`id` = 52
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `messages` WHERE `messages`.`id` = 53[0m
+  [1m[35m (2.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `messages` WHERE `messages`.`id` = 54
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `messages` WHERE `messages`.`id` = 55[0m
+  [1m[35m (2.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM `messages` WHERE `messages`.`id` = 56
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `messages` WHERE `messages`.`id` = 57[0m
+  [1m[35m (2.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `messages` WHERE `messages`.`id` = 58
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `messages` WHERE `messages`.`id` = 59[0m
+  [1m[35m (2.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `messages` WHERE `messages`.`id` = 60
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `messages` WHERE `messages`.`id` = 61[0m
+  [1m[35m (2.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `messages` WHERE `messages`.`id` = 62
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `chats` WHERE `chats`.`id` = 20[0m
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `chats` WHERE `chats`.`id` = 19
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 116ms (ActiveRecord: 83.1ms)
+
+
+Started GET "/users/5" for ::1 at 2017-03-17 21:42:37 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 5 LIMIT 1
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 17  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 18  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mFriend Load (0.3ms)[0m  SELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 5
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  Rendered users/show.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 40ms (Views: 34.7ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/users/5/chats/17" for ::1 at 2017-03-17 21:42:39 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 17 LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[35mChat Load (0.6ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m  [["user_id", 4], ["send_to_ID", 5]]
+  [1m[35mMessage Load (1.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 17
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 18[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  Rendered chats/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 45ms (Views: 33.4ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/users/5/chats/17/messages" for ::1 at 2017-03-17 21:42:46 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W/k+rFsvA3Qss27kfpG+ERYqhdg2hiHj3ea+q984HNNfESUI3kMxcdAuRJNmKtIJO5ayD7vEobIZX02eC6jD9g==", "message"=>{"text"=>"わからん"}, "commit"=>"送信", "user_id"=>"5", "chat_id"=>"17"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 17 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('わからん', 17, '2017-03-17 12:42:46', '2017-03-17 12:42:46')[0m
+  [1m[35m (2.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/5/chats/17
+Completed 302 Found in 8ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/users/5/chats/17" for ::1 at 2017-03-17 21:42:46 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5 AND `chats`.`id` = 17 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m  [["user_id", 4], ["send_to_ID", 5]]
+  [1m[35mMessage Load (0.6ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 17
+  [1m[36mMessage Load (0.7ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 18[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  Rendered chats/show.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 44ms (Views: 37.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/5" for ::1 at 2017-03-17 21:42:48 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mChat Load (0.4ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 5
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 4 AND `chats`.`send_to_ID` = 5 LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 17  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 18  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mChat Load (0.4ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 5 LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 38  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 37  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mFriend Load (0.3ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 5[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  Rendered users/show.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 51ms (Views: 44.3ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/users" for ::1 at 2017-03-17 21:42:51 +0900
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users`
+  Rendered users/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for ::1 at 2017-03-17 21:42:52 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.5ms)[0m  SELECT `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 1 LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 2  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mChat Load (0.9ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 3 AND `chats`.`send_to_ID` = 1 LIMIT 1
+  [1m[36mMessage Load (0.5ms)[0m  [1mSELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 10  ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[35mMessage Load (0.4ms)[0m  SELECT  `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 9  ORDER BY `messages`.`id` DESC LIMIT 1
+  [1m[36mFriend Load (0.5ms)[0m  [1mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4]]
+  Rendered users/show.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 53ms (Views: 46.1ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/users/1/chats/2" for ::1 at 2017-03-17 21:42:53 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 1 LIMIT 1  [["user_id", 2], ["send_to_ID", 1]]
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 2[0m
+  [1m[35mMessage Load (4.9ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  Rendered chats/show.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 69ms (Views: 53.2ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/users/1/chats/2/messages" for ::1 at 2017-03-17 21:43:09 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eIXAjK9SW2yH4L1xpJAd/bmmoq7/PvYF8Qo4gDOVcXl8bdsoKj5paXt9lwa8K3HllBqVeXJ8dlQ1s8u15wWuXA==", "message"=>{"text"=>"それっぽくなってきた"}, "commit"=>"送信", "user_id"=>"1", "chat_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mChat Load (0.3ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `messages` (`text`, `chat_id`, `created_at`, `updated_at`) VALUES ('それっぽくなってきた', 2, '2017-03-17 12:43:09', '2017-03-17 12:43:09')
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/1/chats/2
+Completed 302 Found in 8ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/users/1/chats/2" for ::1 at 2017-03-17 21:43:09 +0900
+Processing by ChatsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 1 AND `chats`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mChat Load (0.3ms)[0m  [1mSELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `chats`.* FROM `chats` WHERE `chats`.`user_id` = 2 AND `chats`.`send_to_ID` = 1 LIMIT 1  [["user_id", 2], ["send_to_ID", 1]]
+  [1m[36mMessage Load (0.3ms)[0m  [1mSELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 2[0m
+  [1m[35mMessage Load (0.3ms)[0m  SELECT `messages`.* FROM `messages` WHERE `messages`.`chat_id` = 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  Rendered chats/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 35ms (Views: 29.9ms | ActiveRecord: 1.9ms)

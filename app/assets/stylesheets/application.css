@@ -35,19 +35,49 @@
  table#talk td{
      width: 350px;
  }
- table#talk td#right{
-     text-align: right;
-     width: 350px;
- }
- table#talk td#left{
-     text-align: left;
-     width: 350px;
- }
  table th.title{
      text-align: center;
  }
  h1{
      text-align: center;
+ }
+ .right{
+    background: #00DD00;
+    color: #000000;
+    padding: 8px 8px 8px 2px;
+    margin: 10px 10px 10px 0px;
+    position:relative;
+    height:auto;
+    text-align: left;
+ }
+ .right:before{
+    content: ' ';
+    width:0;
+    height: 0;
+    position:absolute;
+    border:10px solid transparent;
+    border-left-color: #00DD00;
+    top:25%;
+    left:100%;
+ }
+ .left{
+    background: #fff;
+    color: #000000;
+    padding: 8px 8px 8px 2px;
+    margin: 10px 10px 10px 10px;
+    position:relative;
+    height:auto;
+    text-align: left;
+ }
+ .left:before{
+   content: ' ';
+   width:0;
+   height: 0;
+   position:absolute;
+   border:10px solid transparent;
+   border-right-color: #ffffff;
+   top:25%;
+   right:100%;
  }
  div{
      text-align: center;
