@@ -1,34 +1,45 @@
-<h1><%= User.find(@chat.send_to_ID).name %>とのトーク画面</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <% a=[] %>
+        <% @chat.messages.each do |message| %>
+            <% a.push(message) %>
+        <% end %>
+        <% @chat2.messages.each do |message| %>
+            <% a.push(message) %>
+        <% end %>
+        <% a.sort_by! {|message| message.created_at} %>
 
----------トーク画面-----------------------------------------------------
-<br>
-<% a=[] %>
+        <table id="talk">
+            <thead>
+                <th colspan="2"><%= User.find(@chat.send_to_ID).name %></th>
+            </thead>
+            <tbody>
+                <% a.each do |message| %>
+                <tr>
+                    <% if message.chat.user==User.find(@chat.send_to_ID).id %>
+                        <td id="right"><%= message.text %></td>
+                        <% else %>
+                        <td id="left"><%= message.text %></td>
+                    <% end %>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
 
+        <p>
+            <% @message=@chat.messages.new  %>
+            <%= form_for @message, url: user_chat_messages_path(@user.id,@chat.id), method: :post do |f|%>
+                <%= f.text_area :text%>   <%= f.submit "送信" %>
+            <%end%>
+        </p>
+        <p>
+            <%= link_to "戻る",user_path(@chat.user.id) %>
+        </p>
 
-
-<% @chat.messages.each do |message| %>
-    <% a.push(message) %>
-<% end %>
-<% @chat2.messages.each do |message| %>
-    <% a.push(message) %>
-<% end %>
-<% a.sort_by! {|message| message.created_at} %>
-<ul>
-    <% a.each do |message| %>
-        <li>
-            <%= message.text %> by<%= message.chat.user.name %>
-        </li>
-    <% end %>
-</ul>
-
-------------------------------------------------------------------------
-
-<p>
-    <% @message=@chat.messages.new  %>
-    <%= form_for @message, url: user_chat_messages_path(@user.id,@chat.id), method: :post do |f|%>
-        <%= f.text_area :text%>   <%= f.submit "送信" %>
-    <%end%>
-</p>
-<p>
-    <%= link_to "戻る",user_path(@chat.user.id) %>
-</p>
+    </body>
+</html>

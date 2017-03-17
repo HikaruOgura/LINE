@@ -13,6 +13,30 @@
  *= require_tree .
  *= require_self
  */
+ table#talk{
+     position: absolute;
+     top: 50px;
+     left: 350px;
+     border-collapse: collapse;
+     text-align: left;
+     line-height: 1.5;
+     border-top: 1px solid #ccc;
+     border-left: 1px solid #ccc;
+     background-color: #eee
+ }
+ table#talk th{
+    text-align: center;
+    border-bottom: 1px solid #111;
+    line-height: 3.0;
+ }
+ table td#right{
+     text-align: right;
+     width: 700px;
+ }
+ table td#left{
+     text-align: left;
+     width: 700px;
+ }
  table th.title{
      text-align: center;
  }
