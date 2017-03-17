@@ -13,3 +13,83 @@
  *= require_tree .
  *= require_self
  */
+ table th.title{
+     text-align: center;
+ }
+ h1{
+     text-align: center;
+ }
+ div{
+     text-align: center;
+ }
+ table#chats{
+     position: absolute;
+     top: 200px;
+     left: 100px;
+     border-collapse: collapse;
+     text-align: left;
+     line-height: 1.5;
+     border-top: 1px solid #ccc;
+     border-left: 3px solid green;
+     background-color: #eee
+ }
+ table#chats th{
+     width: 147px;
+     padding: 10px;
+     font-weight: bold;
+     vertical-align: top;
+     color: #153d73;
+     border-bottom: 1px solid #ccc;
+ }
+ table#chats td{
+     width: 600px;
+     padding: 10px;
+     vertical-align: top;
+     border-bottom: 1px solid #ccc;
+ }
+ table#chats td.delete{
+     width: 100px
+ }
+
+ table#friends{
+     position: absolute;
+     top: 200px;
+     left: 1050px;
+     border-collapse: collapse;
+     text-align: left;
+     line-height: 1.5;
+     border-top: 1px solid #ccc;
+     border-left: 3px solid green;
+     background-color: #eee
+ }
+ table#friends th{
+     width: 147px;
+     padding: 10px;
+     font-weight: bold;
+     vertical-align: top;
+     color: #153d73;
+     border-bottom: 1px solid #ccc;
+ }
+ table#friends td{
+     width: 100px;
+     padding: 10px;
+     vertical-align: top;
+     border-bottom: 1px solid #ccc;
+ }
+ table tr{
+     border-right: 1px solid #ccc;
+ }
+ table#mainmenu{
+     position: absolute;
+     top:130px;
+     left:200px;
+     border-collapse: collapse;
+     text-align: center;
+     line-height: 1.5;
+     border-top: 1px solid #ccc;
+     border-left: 1px solid #ccc;
+     background-color: #eee
+ }
+ table#mainmenu th{
+     width: 250px;
+ }
