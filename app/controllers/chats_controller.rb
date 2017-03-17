@@ -22,6 +22,8 @@ class ChatsController < ApplicationController
     def show
         @user=User.find(params[:user_id])
         @chat=@user.chats.find(params[:id])
+        @user2=User.find(@chat.send_to_ID)
+        @chat2=@user2.chats.find_by(send_to_ID: @user.id)
     end
 
 end

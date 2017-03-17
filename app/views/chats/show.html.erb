@@ -2,14 +2,25 @@
 
 ---------トーク画面-----------------------------------------------------
 <br>
+<% a=[] %>
 
-<ul>
+
+
 <% @chat.messages.each do |message| %>
-    <li>
-    <%= message.text %>
-    </li>
+    <% a.push(message) %>
 <% end %>
+<% @chat2.messages.each do |message| %>
+    <% a.push(message) %>
+<% end %>
+<% a.sort_by! {|message| message.created_at} %>
+<ul>
+    <% a.each do |message| %>
+        <li>
+            <%= message.text %> by<%= message.chat.user.name %>
+        </li>
+    <% end %>
 </ul>
+
 ------------------------------------------------------------------------
 
 <p>
