@@ -1,32 +1,123 @@
-<h1><%=@user.name%></h1>
-<p>
-    lineID:<%= @user.lineID %>
-</p>
-<p>
-    <%= link_to "プロフィールを編集する",edit_user_path(@user.id) %>
-    <%= link_to "アカウントを削除する",user_path(@user.id),method: :delete,data: {confirm: @user.name+"を本当に削除して良いですか？？"}%>
-    <%= link_to "友達を追加する",new_user_friend_path(@user.id) %>
-    <%= link_to "ログアウト",users_path %>
-</p>
-----------トーク一覧-----------------------------------------------------------------------------  <br>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>LINE</title>
+        <style media="screen">
+            table#chats{
+                position: absolute;
+                top: 200px;
+                left: 10px;
+                border-collapse: collapse;
+                text-align: left;
+                line-height: 1.5;
+                border-top: 1px solid #ccc;
+                border-left: 3px solid green;
+                background-color: #eee
+            }
+            table#chats th{
+                width: 147px;
+                padding: 10px;
+                font-weight: bold;
+                vertical-align: top;
+                color: #153d73;
+                border-bottom: 1px solid #ccc;
+            }
+            table#chats td{
+                width: 600px;
+                padding: 10px;
+                vertical-align: top;
+                border-bottom: 1px solid #ccc;
+            }
+            table#chats td.delete{
+                width: 100px
+            }
 
-<ul>
-    <%@user.chats.each do |chat|%>
-        <li>
-        <%= link_to User.find(chat.send_to_ID).name,user_chat_path(chat.user_id,chat.id) %>
-        <%= link_to "削除する",user_chat_path(chat.user_id,chat.id),method: :delete,data: {confirm: "このトークを本当に削除して良いですか？？"} %>
-        </li>
-    <%end%>
-    <br>
-</ul>
+            table#friends{
+                position: absolute;
+                top: 200px;
+                left: 950px;
+                border-collapse: collapse;
+                text-align: left;
+                line-height: 1.5;
+                border-top: 1px solid #ccc;
+                border-left: 3px solid green;
+                background-color: #eee
+            }
+            table#friends th{
+                width: 147px;
+                padding: 10px;
+                font-weight: bold;
+                vertical-align: top;
+                color: #153d73;
+                border-bottom: 1px solid #ccc;
+            }
+            table#friends td{
+                width: 100px;
+                padding: 10px;
+                vertical-align: top;
+                border-bottom: 1px solid #ccc;
+            }
+            table tr{
+                border-right: 1px solid #ccc;
+            }
 
-----------友達一覧-----------------------------------------------------------------------------  <br>
 
-<ul>
-    <%@user.friends.each do |friend|%>
-        <li>
-        <%= link_to User.find(friend.friend_id).name,user_friend_path(friend.user_id,friend.id) %>
-        </li>
-    <%end%>
-    <br>
-</ul>
+        </style>
+
+    </head>
+    <body>
+        <h1><%=@user.name%></h1>
+        <div class="lineid">
+            lineID:<%= @user.lineID %>
+        </div>
+        <p>
+        <table>
+        	<thead>
+        		<tr>
+        			<th><%= link_to "プロフィールを編集する",edit_user_path(@user.id) %></th> <th><%= link_to "アカウントを削除する",user_path(@user.id),method: :delete,data: {confirm: @user.name+"を本当に削除して良いですか？？"}%>
+                    </th> <th><%= link_to "友達を追加する",new_user_friend_path(@user.id) %></th> <th><%= link_to "ログアウト",users_path %></th>
+        		</tr>
+        	</thead>
+        </table>
+        </p>
+
+        <table id="chats">
+            <thead>
+                <tr>
+                <th colspan="3" class="title">トーク一覧</th>
+                </tr>
+            </thead>
+        	<tbody>
+                <%@user.chats.each do |chat|%>
+        		<tr>
+                    <th><%= link_to User.find(chat.send_to_ID).name,user_chat_path(chat.user_id,chat.id) %></th>
+                    <td>ここに最新メッセージ</td>
+                    <td class="delete"><%= link_to "削除する",user_chat_path(chat.user_id,chat.id),method: :delete,data: {confirm: "このトークを本当に削除して良いですか？？"} %></td>
+        		</tr>
+                <%end%>
+        	</tbody>
+        </table>
+
+
+        <table id="friends">
+            <thead>
+                <tr>
+                <th colspan="2" class="title">友達一覧</th>
+                </tr>
+            </thead>
+        	<tbody>
+                <%@user.friends.each do |friend|%>
+        		<tr>
+        			<th><%= link_to User.find(friend.friend_id).name,user_friend_path(friend.user_id,friend.id) %></th>
+                    <td><%= User.find(friend.friend_id).lineID %></td>
+                </tr>
+                <%end%>
+        	</tbody>
+        </table>
+
+
+
+
+    </body>
+</html>
