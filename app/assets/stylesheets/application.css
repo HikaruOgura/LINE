@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ table#send{
+     position: absolute;
+     top: 630px;
+     left: 348px;
+ }
+ 
  body{
      background-color: #eee
  }
