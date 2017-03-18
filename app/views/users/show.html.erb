@@ -31,6 +31,7 @@
                 </tr>
             </thead>
         	<tbody>
+            
                 <%@user.chats.each do |chat|%>
         		<tr>
                     <th><%= link_to User.find(chat.send_to_ID).name,user_chat_path(chat.user_id,chat.id) %></th>

@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ body{
+     background-color: #eee
+ }
  table#talk{
      position: absolute;
      top: 50px;
@@ -20,24 +23,25 @@
      border-collapse: collapse;
      text-align: left;
      line-height: 1.5;
-     border-top: 1px solid #000;
-     border-left: 1px solid #000;
-     border-bottom: 1px solid #000;
-     border-right: 1px solid #000;
+     border-top: 1px solid #ccc;
+     border-left: 1px solid #ccc;
+     border-bottom: 1px solid #ccc;
+     border-right: 1px solid #ccc;
      background-color: #ffffff
  }
  table#talk th{
     text-align: center;
-    border-bottom: 1px solid #111;
+    border-bottom: 1px solid #ccc;
     line-height: 5.0;
      width: 700px;
  }
- table#talk tbody{
-    background-color: skyblue;
-    overflow: auto;
-    height: 100px;
- }
 
+ table#talk tbody{
+     display: block;
+    background-color: skyblue;
+    height: 500px;
+    overflow-y: scroll;
+ }
 
  table#talk td{
      width: 350px;
@@ -91,7 +95,7 @@
    height: 0;
    position:absolute;
    border:10px solid transparent;
-   border-right-color: #ffffff;
+   border-right-color: #fff;
    top:25%;
    right:100%;
  }
@@ -107,7 +111,7 @@
      line-height: 1.5;
      border-top: 1px solid #ccc;
      border-left: 3px solid green;
-     background-color: #eee
+     background-color: white;
  }
  table#chats th{
      width: 150px;
@@ -136,7 +140,7 @@
      line-height: 1.5;
      border-top: 1px solid #ccc;
      border-left: 3px solid green;
-     background-color: #eee
+     background-color: white;
  }
  table#friends th{
      width: 150px;
@@ -152,9 +156,6 @@
      vertical-align: top;
      border-bottom: 1px solid #ccc;
  }
- table tr{
-     border-right: 1px solid #000000;
- }
  table#mainmenu{
      position: absolute;
      top:130px;
@@ -164,7 +165,7 @@
      line-height: 1.5;
      border-top: 1px solid #ccc;
      border-left: 1px solid #ccc;
-     background-color: #eee
+     background-color: white;
  }
  table#mainmenu th{
      width: 250px;

@@ -18,7 +18,6 @@
             <thead>
                 <th colspan="2"><%= User.find(@chat.send_to_ID).name %></th>
             </thead>
-            <div class="gamen">
                 <tbody>
                     <% a.each do |message| %>
                         <tr>
@@ -30,8 +29,8 @@
                         </tr>
                     <% end %>
                 </tbody>
-            </div>
         </table>
+
 
         <p>
             <% @message=@chat.messages.new  %>
