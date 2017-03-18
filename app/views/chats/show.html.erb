@@ -3,6 +3,13 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <script type="text/javascript">
+        function goBottom(targetId) {
+            var obj = document.getElementById(targetId);
+            if(!obj) return;
+            obj.scrollTop = obj.scrollHeight;
+        }
+        </script>
     </head>
     <body>
         <% a=[] %>
@@ -18,7 +25,7 @@
             <thead>
                 <th colspan="2"><%= User.find(@chat.send_to_ID).name %></th>
             </thead>
-                <tbody>
+                <tbody id="gamen">
                     <% a.each do |message| %>
                         <tr>
                             <% if message.chat.user.id!=User.find(@chat.send_to_ID).id %>
@@ -43,4 +50,7 @@
         </p>
 
     </body>
+    <script type="text/javascript">
+        goBottom("gamen")
+    </script>
 </html>
