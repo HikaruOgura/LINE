@@ -15,10 +15,10 @@
  */
  table#send{
      position: absolute;
-     top: 630px;
+     top: 680px;
      left: 348px;
  }
- 
+
  body{
      background-color: #eee
  }
@@ -45,7 +45,7 @@
  table#talk tbody#gamen{
      display: block;
     background-color: skyblue;
-    height: 500px;
+    height: 550px;
     overflow-y: scroll;
  }
 
