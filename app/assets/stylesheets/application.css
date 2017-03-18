@@ -28,15 +28,19 @@
     text-align: center;
     border-bottom: 1px solid #111;
     line-height: 3.0;
- }
- table#talk th{
      width: 700px;
  }
+
  table#talk td{
      width: 350px;
  }
- table th.title{
+ table#chats th.chats{
      text-align: center;
+     width: 850px;
+ }
+ table#friends th.friends{
+     text-align: center;
+     width: 250px;
  }
  h1{
      text-align: center;
@@ -98,7 +102,7 @@
      background-color: #eee
  }
  table#chats th{
-     width: 147px;
+     width: 150px;
      padding: 10px;
      font-weight: bold;
      vertical-align: top;
@@ -127,7 +131,7 @@
      background-color: #eee
  }
  table#friends th{
-     width: 147px;
+     width: 150px;
      padding: 10px;
      font-weight: bold;
      vertical-align: top;
