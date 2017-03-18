@@ -18,17 +18,19 @@
             <thead>
                 <th colspan="2"><%= User.find(@chat.send_to_ID).name %></th>
             </thead>
-            <tbody>
-                <% a.each do |message| %>
-                    <tr>
-                        <% if message.chat.user.id!=User.find(@chat.send_to_ID).id %>
-                            <td></td><td><div class="right"><%= message.text %></div></td>
-                            <% else %>
-                            <td><div class="left"><%= message.text %></div></td><td></td>
-                        <% end %>
-                    </tr>
-                <% end %>
-            </tbody>
+            <div class="gamen">
+                <tbody>
+                    <% a.each do |message| %>
+                        <tr>
+                            <% if message.chat.user.id!=User.find(@chat.send_to_ID).id %>
+                                <td></td><td><div class="right"><%= message.text %></div></td>
+                                <% else %>
+                                <td><div class="left"><%= message.text %></div></td><td></td>
+                            <% end %>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </div>
         </table>
 
         <p>
