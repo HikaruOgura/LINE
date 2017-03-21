@@ -41,9 +41,9 @@
                         </tr>
                         <tr>
                             <% if message.chat.user.id!=User.find(@chat.send_to_ID).id %>
-                                <td id="time_right"><%= message.created_at.hour.to_s + ":" + message.created_at.min.to_s %></td>
+                                <td id="time_right"><%= message.created_at.strftime("%H:%M")%></td>
                                 <% else %>
-                                <td id="time_left"><%= message.created_at.hour.to_s + ":" + message.created_at.min.to_s %></td>
+                                <td id="time_left"><%= message.created_at.strftime("%H:%M")%></td>
                             <% end %>
                         </tr>
                     <% end %>
