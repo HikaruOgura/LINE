@@ -18,6 +18,22 @@
      top: 680px;
      left: 348px;
  }
+ table td#read{
+     text-align: right;
+     font-size: 3px;
+     vertical-align: bottom;
+ }
+
+ table td#time_left{
+     text-align: left;
+     font-size: 3px;
+ }
+ table td#time_right{
+     text-align: right;
+     font-size: 3px;
+     vertical-align: top;
+ }
+
 
  body{
      background-color: #eee
@@ -49,6 +65,10 @@
     overflow-y: scroll;
  }
 
+ table#talk td.blank{
+     width: 350px;
+     height: 30px;
+ }
  table#talk td{
      width: 350px;
  }
@@ -67,7 +87,7 @@
     background: #00DD00;
     color: #000000;
     padding: 8px 8px 8px 2px;
-    margin: 10px 10px 10px 0px;
+    margin: 10px 10px 10px 5px;
     position:relative;
     height:auto;
     width:auto;
@@ -88,7 +108,7 @@
     background: #fff;
     color: #000000;
     padding: 8px 8px 8px 2px;
-    margin: 10px 10px 10px 10px;
+    margin: 10px 0px 10px 10px;
     position:relative;
     height:auto;
     width:auto;

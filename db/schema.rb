@@ -33,9 +33,10 @@ ActiveRecord::Schema.define(version: 20170317011757) do
 
   create_table "messages", force: :cascade do |t|
     t.string   "text",       limit: 255
+    t.boolean  "read",                   default: false
     t.integer  "chat_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   add_index "messages", ["chat_id"], name: "index_messages_on_chat_id", using: :btree

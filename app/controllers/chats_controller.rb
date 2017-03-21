@@ -39,6 +39,10 @@ class ChatsController < ApplicationController
         else
         @chat2=@user2.chats.find_by(send_to_ID: @user.id)
         end
+        @chat2.messages.each do |message|
+            message.read = true
+            message.save
+        end
     end
 
 end
