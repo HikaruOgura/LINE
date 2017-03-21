@@ -57,7 +57,7 @@
                     <th>
                     <% @message=@chat.messages.new  %>
                     <%= form_for @message, url: user_chat_messages_path(@user.id,@chat.id), method: :post do |f|%>
-                        <%= f.text_area :text, :size=>"100x3"%> <%= f.submit "送信" %>
+                        <%= f.text_area :text, :size=>"100x3"%> <%= f.submit "送信", id: "submit_button" %>
                     <%end%>
                     </th>
                 </tr>

@@ -13,6 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ input#submit_button{
+     width: 100px;
+     height: 48px;
+     background-color: #0099FF;
+     position: absolute;
+     top: 2px;
+     left: 625px;
+ }
  table#send{
      position: absolute;
      top: 660px;
