@@ -1,3 +1,79 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+table#chats th.chats{
+    text-align: center;
+    width: 850px;
+}
+table#friends th.friends{
+    text-align: center;
+    width: 250px;
+}
+table#chats{
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-left: 3px solid green;
+    background-color: white;
+}
+table#chats th{
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #153d73;
+    border-bottom: 1px solid #ccc;
+}
+table#chats td{
+    width: 600px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+table#chats td.delete{
+    width: 100px
+}
+table#friends{
+    position: absolute;
+    top: 200px;
+    left: 1050px;
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-left: 3px solid green;
+    background-color: white;
+}
+table#friends th{
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #153d73;
+    border-bottom: 1px solid #ccc;
+}
+table#friends td{
+    width: 100px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+table#mainmenu{
+    position: absolute;
+    top:130px;
+    left:220px;
+    border-collapse: collapse;
+    text-align: center;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    background-color: white;
+}
+table#mainmenu th{
+    width: 250px;
+    border-bottom: 1px solid black;
+}

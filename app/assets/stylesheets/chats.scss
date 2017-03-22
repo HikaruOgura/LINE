@@ -1,3 +1,107 @@
 // Place all the styles related to the chats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+input#submit_button{
+    width: 100px;
+    height: 48px;
+    background-color: #0099FF;
+    position: absolute;
+    top: 2px;
+    left: 625px;
+}
+table#send{
+    position: absolute;
+    top: 660px;
+    left: 348px;
+}
+table td#read{
+    text-align: right;
+    font-size: 3px;
+    vertical-align: bottom;
+}
+table td#time_left{
+    text-align: left;
+    font-size: 3px;
+}
+table td#time_right{
+    text-align: right;
+    font-size: 3px;
+    vertical-align: top;
+}
+table#talk{
+    position: absolute;
+    top: 50px;
+    left: 350px;
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    background-color: #ffffff
+}
+table#talk th{
+   text-align: center;
+   border-bottom: 1px solid #ccc;
+   line-height: 3.0;
+    width: 720px;
+    font-size: 20px;
+}
+
+table#talk tbody#gamen{
+    display: block;
+   background-color: skyblue;
+   height: 550px;
+   overflow-y: scroll;
+}
+
+table#talk td.blank{
+    width: 350px;
+    height: 30px;
+}
+table#talk td{
+    width: 350px;
+}
+.right{
+   background: #00DD00;
+   color: #000000;
+   padding: 8px 8px 8px 10px;
+   margin: 10px 0px 10px 5px;
+   position:relative;
+   height:auto;
+   width:auto;
+   text-align: left;
+   border-radius: 10px;
+}
+.right:before{
+   content: ' ';
+   width:0;
+   height:0;
+   position:absolute;
+   border:11px solid transparent;
+   border-left-color: #00DD00;
+   top:25%;
+   left:100%;
+}
+.left{
+   background: #fff;
+   color: #000000;
+   padding: 8px 8px 8px 10px;
+   margin: 10px 0px 10px 15px;
+   position:relative;
+   height:auto;
+   width:auto;
+   text-align: left;
+   border-radius: 10px;
+}
+.left:before{
+  content: ' ';
+  width:0;
+  height: 0;
+  position:absolute;
+  border:10px solid transparent;
+  border-right-color: #fff;
+  top:25%;
+  right:100%;
+}
